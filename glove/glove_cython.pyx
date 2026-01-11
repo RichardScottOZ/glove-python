@@ -197,7 +197,7 @@ def transform_paragraph(double[:, ::1] wordvec,
             # Get prediction
             prediction = wordbias[word_b]
             for i in range(dim):
-                prediction = prediction + paragraphvec[i] * wordvec[word_b, i]
+                prediction += paragraphvec[i] * wordvec[word_b, i]
 
             # Compute loss and the example weight with improved stability.
             ratio = count / max_count

@@ -200,8 +200,10 @@ class Glove(object):
 
         random_state = check_random_state(self.random_state)
 
-        word_ids = np.array(list(cooccurrence.keys()), dtype=np.int32)
-        values = np.array(list(cooccurrence.values()), dtype=np.float64)
+        # Use items() to ensure consistent ordering of keys and values
+        cooccurrence_items = list(cooccurrence.items())
+        word_ids = np.array([item[0] for item in cooccurrence_items], dtype=np.int32)
+        values = np.array([item[1] for item in cooccurrence_items], dtype=np.float64)
         shuffle_indices = np.arange(len(word_ids), dtype=np.int32)
 
         # Initialize the vector to mean of constituent word vectors
