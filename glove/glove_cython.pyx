@@ -105,21 +105,24 @@ def fit_vectors(double[:, ::1] wordvec,
 
             # Update step: apply gradients using AdaGrad
             # Process word vectors with improved numerical stability
+            # Note: Both updates use the pre-update values for symmetry
             for i in range(dim):
-                # Update word_a
+                # Save both values before updating (for symmetric gradient computation)
+                temp_a = wordvec[word_a, i]
                 temp_b = wordvec[word_b, i]
+                
+                # Update word_a
                 gradient = weighted_loss * temp_b
                 gradient_sq = gradient * gradient
                 learning_rate = initial_learning_rate / sqrt(wordvec_sum_gradients[word_a, i] + eps)
-                wordvec[word_a, i] = wordvec[word_a, i] - learning_rate * gradient
+                wordvec[word_a, i] = temp_a - learning_rate * gradient
                 wordvec_sum_gradients[word_a, i] += gradient_sq
 
-                # Update word_b using updated word_a value
-                temp_a = wordvec[word_a, i]
+                # Update word_b (using pre-update temp_a)
                 gradient = weighted_loss * temp_a
                 gradient_sq = gradient * gradient
                 learning_rate = initial_learning_rate / sqrt(wordvec_sum_gradients[word_b, i] + eps)
-                wordvec[word_b, i] = wordvec[word_b, i] - learning_rate * gradient
+                wordvec[word_b, i] = temp_b - learning_rate * gradient
                 wordvec_sum_gradients[word_b, i] += gradient_sq
 
             # Update word biases with improved numerical stability
@@ -207,7 +210,7 @@ def transform_paragraph(double[:, ::1] wordvec,
 
             # Update step: apply gradients with improved numerical stability.
             for i in range(dim):
-                learning_rate = initial_learning_rate / sqrt(sum_gradients[i] + 1e-8)
+                learning_rate = initial_learning_rate / sqrt(sum_gradients[i] + eps)
                 gradient = loss * wordvec[word_b, i]
                 paragraphvec[i] = paragraphvec[i] - learning_rate * gradient
                 sum_gradients[i] += gradient * gradient
