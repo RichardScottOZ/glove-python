@@ -52,14 +52,30 @@ class Glove(object):
                           Only try setting to a lower value if you
                           are experiencing problems with numerical
                           stability.
-        - random_state: random statue used to intialize optimization
+        - random_state: random state used to initialize optimization
         """
+        
+        # Input validation
+        if no_components < 1:
+            raise ValueError('Number of components must be at least 1')
+        
+        if learning_rate <= 0:
+            raise ValueError('Learning rate must be positive')
+        
+        if alpha < 0:
+            raise ValueError('Alpha must be non-negative')
+        
+        if max_count <= 0:
+            raise ValueError('Max count must be positive')
+        
+        if max_loss <= 0:
+            raise ValueError('Max loss must be positive')
 
-        self.no_components = no_components
+        self.no_components = int(no_components)
         self.learning_rate = float(learning_rate)
         self.alpha = float(alpha)
         self.max_count = float(max_count)
-        self.max_loss = max_loss
+        self.max_loss = float(max_loss)
 
         self.word_vectors = None
         self.word_biases = None
@@ -87,10 +103,26 @@ class Glove(object):
 
         if (len(shape) != 2 or
             shape[0] != shape[1]):
-            raise Exception('Coocurrence matrix must be square')
+            raise ValueError('Coocurrence matrix must be square')
 
         if not sp.isspmatrix_coo(matrix):
-            raise Exception('Coocurrence matrix must be in the COO format')
+            raise ValueError('Coocurrence matrix must be in the COO format')
+        
+        if shape[0] == 0:
+            raise ValueError('Coocurrence matrix cannot be empty')
+        
+        if epochs < 0:
+            raise ValueError('Number of epochs must be non-negative')
+        
+        if no_threads < 1:
+            raise ValueError('Number of threads must be at least 1')
+        
+        # Check for invalid values in the cooccurrence matrix
+        if not np.isfinite(matrix.data).all():
+            raise ValueError('Coocurrence matrix contains non-finite values')
+        
+        if (matrix.data < 0).any():
+            raise ValueError('Coocurrence matrix contains negative values')
 
         random_state = check_random_state(self.random_state)
         self.word_vectors = ((random_state.rand(shape[0],
@@ -131,7 +163,12 @@ class Glove(object):
                         int(no_threads))
 
             if not np.isfinite(self.word_vectors).all():
-                raise Exception('Non-finite values in word vectors. '
+                raise RuntimeError('Non-finite values in word vectors. '
+                                'Try reducing the learning rate or the '
+                                'max_loss parameter.')
+            
+            if not np.isfinite(self.word_biases).all():
+                raise RuntimeError('Non-finite values in word biases. '
                                 'Try reducing the learning rate or the '
                                 'max_loss parameter.')
 
@@ -163,8 +200,10 @@ class Glove(object):
 
         random_state = check_random_state(self.random_state)
 
-        word_ids = np.array(cooccurrence.keys(), dtype=np.int32)
-        values = np.array(cooccurrence.values(), dtype=np.float64)
+        # Use items() to ensure consistent ordering of keys and values
+        cooccurrence_items = list(cooccurrence.items())
+        word_ids = np.array([item[0] for item in cooccurrence_items], dtype=np.int32)
+        values = np.array([item[1] for item in cooccurrence_items], dtype=np.float64)
         shuffle_indices = np.arange(len(word_ids), dtype=np.int32)
 
         # Initialize the vector to mean of constituent word vectors

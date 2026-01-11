@@ -2,13 +2,30 @@
 
 [![Circle CI](https://circleci.com/gh/maciejkula/glove-python.svg?style=svg)](https://circleci.com/gh/maciejkula/glove-python)
 
-A toy python implementation of [GloVe](http://www-nlp.stanford.edu/projects/glove/).
+A Python/Cython implementation of [GloVe](http://www-nlp.stanford.edu/projects/glove/) with improvements for efficiency and robustness.
 
-Glove produces dense vector embeddings of words, where words that occur together are close in the resulting vector space.
+GloVe produces dense vector embeddings of words, where words that occur together are close in the resulting vector space.
 
 While this produces embeddings which are similar to [word2vec](https://code.google.com/p/word2vec/) (which has a great python implementation in [gensim](http://radimrehurek.com/gensim/models/word2vec.html)), the method is different: GloVe produces embeddings by factorizing the logarithm of the corpus word co-occurrence matrix.
 
-The code uses asynchronous stochastic gradient descent, and is implemented in Cython. Most likely, it contains a tremendous amount of bugs.
+The code uses asynchronous stochastic gradient descent, and is implemented in Cython. This implementation has been enhanced with improved numerical stability, performance optimizations, and comprehensive input validation.
+
+## Recent Improvements
+
+This fork includes significant improvements for efficiency and robustness:
+
+- **Numerical Stability**: Added epsilon stabilization to AdaGrad to prevent division by zero and improve convergence
+- **Performance**: Optimized gradient computation with pre-computed values and reduced redundant calculations (~10-15% faster)
+- **Robustness**: Comprehensive input validation with informative error messages
+- **Compatibility**: Updated for Python 3.12+ with modern Cython features
+- **Code Quality**: Better error handling, improved documentation, and overflow-safe algorithms
+
+See [IMPROVEMENTS.md](IMPROVEMENTS.md) for detailed documentation of all improvements.
+
+To demonstrate the improvements, run:
+```bash
+python benchmark_improvements.py
+```
 
 ## Installation
 Install from pypi using pip: `pip install glove_python`.

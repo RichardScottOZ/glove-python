@@ -1,6 +1,6 @@
 #!python
 # distutils: language = c++
-# cython: boundscheck=False, wraparound=False, nonecheck=False, cdivision=True
+# cython: boundscheck=False, wraparound=False, nonecheck=False, cdivision=True, language_level=3
 
 import numpy as np
 import scipy.sparse as sp
@@ -12,17 +12,20 @@ from libcpp.vector cimport vector
 
 
 cdef inline int int_min(int a, int b) nogil: return a if a <= b else b
+cdef inline int int_max(int a, int b) nogil: return a if a > b else b
 
 
 cdef int binary_search(int* vec, int size, int first, int last, int x) nogil:
     """
-    Binary seach in an array of ints
+    Binary search in an array of ints.
+    Uses overflow-safe midpoint calculation.
     """
 
     cdef int mid
 
     while (first < last):
-        mid = (first + last) / 2
+        # Overflow-safe midpoint calculation
+        mid = first + (last - first) / 2
         if (vec[mid] == x):
             return mid
         elif vec[mid] > x:
@@ -61,7 +64,7 @@ cdef SparseRowMatrix* new_matrix():
     return mat
 
 
-cdef void free_matrix(SparseRowMatrix* mat) nogil:
+cdef void free_matrix(SparseRowMatrix* mat) noexcept nogil:
     """
     Deallocate the data of a matrix
     """
@@ -79,7 +82,7 @@ cdef void free_matrix(SparseRowMatrix* mat) nogil:
     free(mat)
 
 
-cdef void increment_matrix(SparseRowMatrix* mat, int row, int col, float increment) nogil:
+cdef void increment_matrix(SparseRowMatrix* mat, int row, int col, float increment) noexcept nogil:
     """
     Increment the (row, col) entry of mat by increment.
     """
@@ -122,15 +125,16 @@ cdef void increment_matrix(SparseRowMatrix* mat, int row, int col, float increme
         row_data.insert(row_data.begin() + idx, increment)
 
 
-cdef int matrix_nnz(SparseRowMatrix* mat) nogil:
+cdef int matrix_nnz(SparseRowMatrix* mat) noexcept nogil:
     """
     Get the number of nonzero entries in mat
     """
 
     cdef int i
     cdef int size = 0
+    cdef int num_rows = mat.indices.size()
 
-    for i in range(mat.indices.size()):
+    for i in range(num_rows):
         size += deref(mat.indices)[i].size()
 
     return size
