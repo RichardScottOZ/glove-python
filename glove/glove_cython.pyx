@@ -1,5 +1,5 @@
 #!python
-#cython: boundscheck=False, wraparound=False, cdivision=True, initializedcheck=False
+#cython: boundscheck=False, wraparound=False, cdivision=True, initializedcheck=False, language_level=3
 
 import numpy as np
 import scipy.sparse as sp
@@ -8,6 +8,7 @@ from cython.parallel import parallel, prange
 
 
 cdef inline double double_min(double a, double b) nogil: return a if a <= b else b
+cdef inline double double_max(double a, double b) nogil: return a if a >= b else b
 cdef inline int int_min(int a, int b) nogil: return a if a <= b else b
 cdef inline int int_max(int a, int b) nogil: return a if a > b else b
 
@@ -15,6 +16,8 @@ cdef inline int int_max(int a, int b) nogil: return a if a > b else b
 cdef extern from "math.h" nogil:
     double sqrt(double)
     double c_log "log"(double)
+    double fabs(double)
+    double isfinite(double)
 
 
 def fit_vectors(double[:, ::1] wordvec,
@@ -46,10 +49,15 @@ def fit_vectors(double[:, ::1] wordvec,
     # Hold indices of current words and
     # the cooccurrence count.
     cdef int word_a, word_b
-    cdef double count, learning_rate, gradient
+    cdef double count, learning_rate, gradient, gradient_sq
+    cdef double log_count, ratio
 
     # Loss and gradient variables.
     cdef double prediction, entry_weight, loss
+    
+    # Temporary variables for better optimization
+    cdef double temp_a, temp_b, weighted_loss
+    cdef double eps = 1e-8  # Small constant for numerical stability
 
     # Iteration variables
     cdef int i, j, shuffle_index
@@ -63,49 +71,65 @@ def fit_vectors(double[:, ::1] wordvec,
             word_a = row[shuffle_index]
             word_b = col[shuffle_index]
             count = counts[shuffle_index]
+            
+            # Skip invalid entries for robustness
+            if count <= 0.0:
+                continue
 
-            # Get prediction
-            prediction = 0.0
+            # Compute log once for better efficiency
+            log_count = c_log(count)
 
+            # Get prediction (dot product)
+            prediction = wordbias[word_a] + wordbias[word_b]
             for i in range(dim):
                 prediction = prediction + wordvec[word_a, i] * wordvec[word_b, i]
 
-            prediction = prediction + wordbias[word_a] + wordbias[word_b]
-
             # Compute loss and the example weight.
-            entry_weight = double_min(1.0, (count / max_count)) ** alpha
-            loss = entry_weight * (prediction - c_log(count))
-
-            # Clip the loss for numerical stability.
+            # Use more stable computation of the weight
+            ratio = count / max_count
+            if ratio > 1.0:
+                entry_weight = 1.0
+            else:
+                entry_weight = ratio ** alpha
+            
+            # Compute weighted loss
+            loss = prediction - log_count
+            
+            # Clip the loss for numerical stability (before weighting).
             if loss < -max_loss:
                 loss = -max_loss
             elif loss > max_loss:
                 loss = max_loss
+            
+            weighted_loss = entry_weight * loss
 
-            # Update step: apply gradients and reproject
-            # onto the unit sphere.
+            # Update step: apply gradients using AdaGrad
+            # Process word vectors with improved numerical stability
             for i in range(dim):
+                # Update word_a
+                temp_b = wordvec[word_b, i]
+                gradient = weighted_loss * temp_b
+                gradient_sq = gradient * gradient
+                learning_rate = initial_learning_rate / sqrt(wordvec_sum_gradients[word_a, i] + eps)
+                wordvec[word_a, i] = wordvec[word_a, i] - learning_rate * gradient
+                wordvec_sum_gradients[word_a, i] += gradient_sq
 
-                learning_rate = initial_learning_rate / sqrt(wordvec_sum_gradients[word_a, i])
-                gradient = loss * wordvec[word_b, i]
-                wordvec[word_a, i] = (wordvec[word_a, i] - learning_rate 
-                                      * gradient)
-                wordvec_sum_gradients[word_a, i] += gradient ** 2
+                # Update word_b using updated word_a value
+                temp_a = wordvec[word_a, i]
+                gradient = weighted_loss * temp_a
+                gradient_sq = gradient * gradient
+                learning_rate = initial_learning_rate / sqrt(wordvec_sum_gradients[word_b, i] + eps)
+                wordvec[word_b, i] = wordvec[word_b, i] - learning_rate * gradient
+                wordvec_sum_gradients[word_b, i] += gradient_sq
 
-                learning_rate = initial_learning_rate / sqrt(wordvec_sum_gradients[word_b, i])
-                gradient = loss * wordvec[word_a, i]
-                wordvec[word_b, i] = (wordvec[word_b, i] - learning_rate
-                                      * gradient)
-                wordvec_sum_gradients[word_b, i] += gradient ** 2
+            # Update word biases with improved numerical stability
+            learning_rate = initial_learning_rate / sqrt(wordbias_sum_gradients[word_a] + eps)
+            wordbias[word_a] -= learning_rate * weighted_loss
+            wordbias_sum_gradients[word_a] += weighted_loss * weighted_loss
 
-            # Update word biases.
-            learning_rate = initial_learning_rate / sqrt(wordbias_sum_gradients[word_a])
-            wordbias[word_a] -= learning_rate * loss
-            wordbias_sum_gradients[word_a] += loss ** 2
-
-            learning_rate = initial_learning_rate / sqrt(wordbias_sum_gradients[word_b])
-            wordbias[word_b] -= learning_rate * loss
-            wordbias_sum_gradients[word_b] += loss ** 2
+            learning_rate = initial_learning_rate / sqrt(wordbias_sum_gradients[word_b] + eps)
+            wordbias[word_b] -= learning_rate * weighted_loss
+            wordbias_sum_gradients[word_b] += weighted_loss * weighted_loss
 
 
 def transform_paragraph(double[:, ::1] wordvec,
@@ -137,14 +161,17 @@ def transform_paragraph(double[:, ::1] wordvec,
 
     # Hold indices of current words and
     # the cooccurrence count.
-    cdef int word_b, word_a
-    cdef double count
+    cdef int word_b
+    cdef double count, log_count, ratio
+    cdef double gradient_sq, gradient_val
 
     # Loss and gradient variables.
     cdef double prediction
     cdef double entry_weight
-    cdef double loss
+    cdef double loss, weighted_loss
     cdef double gradient
+    cdef double learning_rate
+    cdef double eps = 1e-8  # Small constant for numerical stability
 
     # Iteration variables
     cdef int epoch, i, j, shuffle_index
@@ -157,21 +184,30 @@ def transform_paragraph(double[:, ::1] wordvec,
 
             word_b = row[shuffle_index]
             count = counts[shuffle_index]
+            
+            # Skip invalid entries
+            if count <= 0.0:
+                continue
+            
+            log_count = c_log(count)
 
             # Get prediction
-            prediction = 0.0
+            prediction = wordbias[word_b]
             for i in range(dim):
                 prediction = prediction + paragraphvec[i] * wordvec[word_b, i]
-            prediction += wordbias[word_b]
 
-            # Compute loss and the example weight.
-            entry_weight = double_min(1.0, (count / max_count)) ** alpha
-            loss = entry_weight * (prediction - c_log(count))
+            # Compute loss and the example weight with improved stability.
+            ratio = count / max_count
+            if ratio > 1.0:
+                entry_weight = 1.0
+            else:
+                entry_weight = ratio ** alpha
+            
+            loss = entry_weight * (prediction - log_count)
 
-            # Update step: apply gradients.
+            # Update step: apply gradients with improved numerical stability.
             for i in range(dim):
-                learning_rate = initial_learning_rate / sqrt(sum_gradients[i])
+                learning_rate = initial_learning_rate / sqrt(sum_gradients[i] + 1e-8)
                 gradient = loss * wordvec[word_b, i]
-                paragraphvec[i] = (paragraphvec[i] - learning_rate
-                                   * gradient)
-                sum_gradients[i] += gradient ** 2
+                paragraphvec[i] = paragraphvec[i] - learning_rate * gradient
+                sum_gradients[i] += gradient * gradient

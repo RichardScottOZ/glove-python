@@ -2464,16 +2464,6 @@ static void __Pyx_RaiseUnboundLocalError(const char *varname);
 /* DivInt[long].proto */
 static CYTHON_INLINE long __Pyx_div_long(long, long, int b_is_constant);
 
-/* ErrOccurredWithGIL.proto */
-static CYTHON_INLINE int __Pyx_ErrOccurredWithGIL(void);
-
-/* SharedInFreeThreading.proto */
-#if CYTHON_COMPILING_IN_CPYTHON_FREETHREADING
-#define __Pyx_shared_in_cpython_freethreading(x) shared(x)
-#else
-#define __Pyx_shared_in_cpython_freethreading(x)
-#endif
-
 /* AllocateExtensionType.proto */
 static PyObject *__Pyx_AllocateExtensionType(PyTypeObject *t, int is_final);
 
@@ -2978,7 +2968,6 @@ static PyObject *contiguous = 0;
 static PyObject *indirect_contiguous = 0;
 static int __pyx_memoryview_thread_locks_used;
 static PyThread_type_lock __pyx_memoryview_thread_locks[8];
-static CYTHON_INLINE double __pyx_f_5glove_12glove_cython_double_min(double, double); /*proto*/
 static int __pyx_array_allocate_buffer(struct __pyx_array_obj *); /*proto*/
 static struct __pyx_array_obj *__pyx_array_new(PyObject *, Py_ssize_t, char *, char const *, char *); /*proto*/
 static PyObject *__pyx_memoryview_new(PyObject *, int, int, __Pyx_TypeInfo const *); /*proto*/
@@ -3113,7 +3102,7 @@ typedef struct {
   PyObject *__pyx_slice[1];
   PyObject *__pyx_tuple[1];
   PyObject *__pyx_codeobj_tab[2];
-  PyObject *__pyx_string_tab[152];
+  PyObject *__pyx_string_tab[160];
   PyObject *__pyx_number_tab[4];
 /* #### Code section: module_state_contents ### */
 /* CommonTypesMetaclass.module_state_decls */
@@ -3226,87 +3215,95 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_n_u_enumerate __pyx_string_tab[68]
 #define __pyx_n_u_epoch __pyx_string_tab[69]
 #define __pyx_n_u_epochs __pyx_string_tab[70]
-#define __pyx_n_u_error __pyx_string_tab[71]
-#define __pyx_n_u_fit_vectors __pyx_string_tab[72]
-#define __pyx_n_u_flags __pyx_string_tab[73]
-#define __pyx_n_u_format __pyx_string_tab[74]
-#define __pyx_n_u_fortran __pyx_string_tab[75]
-#define __pyx_n_u_func __pyx_string_tab[76]
-#define __pyx_n_u_getstate __pyx_string_tab[77]
-#define __pyx_n_u_glove_glove_cython __pyx_string_tab[78]
-#define __pyx_n_u_gradient __pyx_string_tab[79]
-#define __pyx_n_u_i __pyx_string_tab[80]
-#define __pyx_n_u_id __pyx_string_tab[81]
-#define __pyx_n_u_import __pyx_string_tab[82]
-#define __pyx_n_u_index __pyx_string_tab[83]
-#define __pyx_n_u_initial_learning_rate __pyx_string_tab[84]
-#define __pyx_n_u_is_coroutine __pyx_string_tab[85]
-#define __pyx_n_u_items __pyx_string_tab[86]
-#define __pyx_n_u_itemsize __pyx_string_tab[87]
-#define __pyx_n_u_j __pyx_string_tab[88]
-#define __pyx_n_u_learning_rate __pyx_string_tab[89]
-#define __pyx_n_u_loss __pyx_string_tab[90]
-#define __pyx_n_u_main __pyx_string_tab[91]
-#define __pyx_n_u_max_count __pyx_string_tab[92]
-#define __pyx_n_u_max_loss __pyx_string_tab[93]
-#define __pyx_n_u_memview __pyx_string_tab[94]
-#define __pyx_n_u_mode __pyx_string_tab[95]
-#define __pyx_n_u_module __pyx_string_tab[96]
-#define __pyx_n_u_name __pyx_string_tab[97]
-#define __pyx_n_u_name_2 __pyx_string_tab[98]
-#define __pyx_n_u_ndim __pyx_string_tab[99]
-#define __pyx_n_u_new __pyx_string_tab[100]
-#define __pyx_n_u_no_cooccurrences __pyx_string_tab[101]
-#define __pyx_n_u_no_threads __pyx_string_tab[102]
-#define __pyx_n_u_np __pyx_string_tab[103]
-#define __pyx_n_u_numpy __pyx_string_tab[104]
-#define __pyx_n_u_obj __pyx_string_tab[105]
-#define __pyx_n_u_pack __pyx_string_tab[106]
-#define __pyx_n_u_paragraphvec __pyx_string_tab[107]
-#define __pyx_n_u_pop __pyx_string_tab[108]
-#define __pyx_n_u_prediction __pyx_string_tab[109]
-#define __pyx_n_u_pyx_checksum __pyx_string_tab[110]
-#define __pyx_n_u_pyx_state __pyx_string_tab[111]
-#define __pyx_n_u_pyx_type __pyx_string_tab[112]
-#define __pyx_n_u_pyx_unpickle_Enum __pyx_string_tab[113]
-#define __pyx_n_u_pyx_vtable __pyx_string_tab[114]
-#define __pyx_n_u_qualname __pyx_string_tab[115]
-#define __pyx_n_u_reduce __pyx_string_tab[116]
-#define __pyx_n_u_reduce_cython __pyx_string_tab[117]
-#define __pyx_n_u_reduce_ex __pyx_string_tab[118]
-#define __pyx_n_u_register __pyx_string_tab[119]
-#define __pyx_n_u_row __pyx_string_tab[120]
-#define __pyx_n_u_scipy_sparse __pyx_string_tab[121]
-#define __pyx_n_u_set_name __pyx_string_tab[122]
-#define __pyx_n_u_setdefault __pyx_string_tab[123]
-#define __pyx_n_u_setstate __pyx_string_tab[124]
-#define __pyx_n_u_setstate_cython __pyx_string_tab[125]
-#define __pyx_n_u_shape __pyx_string_tab[126]
-#define __pyx_n_u_shuffle_index __pyx_string_tab[127]
-#define __pyx_n_u_shuffle_indices __pyx_string_tab[128]
-#define __pyx_n_u_size __pyx_string_tab[129]
-#define __pyx_n_u_sp __pyx_string_tab[130]
-#define __pyx_n_u_sparse __pyx_string_tab[131]
-#define __pyx_n_u_start __pyx_string_tab[132]
-#define __pyx_n_u_step __pyx_string_tab[133]
-#define __pyx_n_u_stop __pyx_string_tab[134]
-#define __pyx_n_u_struct __pyx_string_tab[135]
-#define __pyx_n_u_sum_gradients __pyx_string_tab[136]
-#define __pyx_n_u_test __pyx_string_tab[137]
-#define __pyx_n_u_transform_paragraph __pyx_string_tab[138]
-#define __pyx_n_u_unpack __pyx_string_tab[139]
-#define __pyx_n_u_update __pyx_string_tab[140]
-#define __pyx_n_u_values __pyx_string_tab[141]
-#define __pyx_n_u_word_a __pyx_string_tab[142]
-#define __pyx_n_u_word_b __pyx_string_tab[143]
-#define __pyx_n_u_wordbias __pyx_string_tab[144]
-#define __pyx_n_u_wordbias_sum_gradients __pyx_string_tab[145]
-#define __pyx_n_u_wordvec __pyx_string_tab[146]
-#define __pyx_n_u_wordvec_sum_gradients __pyx_string_tab[147]
-#define __pyx_n_u_x __pyx_string_tab[148]
-#define __pyx_kp_b_iso88591_0_7_6_aq_E_aq_O1A_S_F_1_U_1_as __pyx_string_tab[149]
-#define __pyx_kp_b_iso88591_7_6_q_6a_O1A_S_S_F_1_U_1_Rwaxq __pyx_string_tab[150]
-#define __pyx_n_b_O __pyx_string_tab[151]
+#define __pyx_n_u_eps __pyx_string_tab[71]
+#define __pyx_n_u_error __pyx_string_tab[72]
+#define __pyx_n_u_fit_vectors __pyx_string_tab[73]
+#define __pyx_n_u_flags __pyx_string_tab[74]
+#define __pyx_n_u_format __pyx_string_tab[75]
+#define __pyx_n_u_fortran __pyx_string_tab[76]
+#define __pyx_n_u_func __pyx_string_tab[77]
+#define __pyx_n_u_getstate __pyx_string_tab[78]
+#define __pyx_n_u_glove_glove_cython __pyx_string_tab[79]
+#define __pyx_n_u_gradient __pyx_string_tab[80]
+#define __pyx_n_u_gradient_sq __pyx_string_tab[81]
+#define __pyx_n_u_gradient_val __pyx_string_tab[82]
+#define __pyx_n_u_i __pyx_string_tab[83]
+#define __pyx_n_u_id __pyx_string_tab[84]
+#define __pyx_n_u_import __pyx_string_tab[85]
+#define __pyx_n_u_index __pyx_string_tab[86]
+#define __pyx_n_u_initial_learning_rate __pyx_string_tab[87]
+#define __pyx_n_u_is_coroutine __pyx_string_tab[88]
+#define __pyx_n_u_items __pyx_string_tab[89]
+#define __pyx_n_u_itemsize __pyx_string_tab[90]
+#define __pyx_n_u_j __pyx_string_tab[91]
+#define __pyx_n_u_learning_rate __pyx_string_tab[92]
+#define __pyx_n_u_log_count __pyx_string_tab[93]
+#define __pyx_n_u_loss __pyx_string_tab[94]
+#define __pyx_n_u_main __pyx_string_tab[95]
+#define __pyx_n_u_max_count __pyx_string_tab[96]
+#define __pyx_n_u_max_loss __pyx_string_tab[97]
+#define __pyx_n_u_memview __pyx_string_tab[98]
+#define __pyx_n_u_mode __pyx_string_tab[99]
+#define __pyx_n_u_module __pyx_string_tab[100]
+#define __pyx_n_u_name __pyx_string_tab[101]
+#define __pyx_n_u_name_2 __pyx_string_tab[102]
+#define __pyx_n_u_ndim __pyx_string_tab[103]
+#define __pyx_n_u_new __pyx_string_tab[104]
+#define __pyx_n_u_no_cooccurrences __pyx_string_tab[105]
+#define __pyx_n_u_no_threads __pyx_string_tab[106]
+#define __pyx_n_u_np __pyx_string_tab[107]
+#define __pyx_n_u_numpy __pyx_string_tab[108]
+#define __pyx_n_u_obj __pyx_string_tab[109]
+#define __pyx_n_u_pack __pyx_string_tab[110]
+#define __pyx_n_u_paragraphvec __pyx_string_tab[111]
+#define __pyx_n_u_pop __pyx_string_tab[112]
+#define __pyx_n_u_prediction __pyx_string_tab[113]
+#define __pyx_n_u_pyx_checksum __pyx_string_tab[114]
+#define __pyx_n_u_pyx_state __pyx_string_tab[115]
+#define __pyx_n_u_pyx_type __pyx_string_tab[116]
+#define __pyx_n_u_pyx_unpickle_Enum __pyx_string_tab[117]
+#define __pyx_n_u_pyx_vtable __pyx_string_tab[118]
+#define __pyx_n_u_qualname __pyx_string_tab[119]
+#define __pyx_n_u_ratio __pyx_string_tab[120]
+#define __pyx_n_u_reduce __pyx_string_tab[121]
+#define __pyx_n_u_reduce_cython __pyx_string_tab[122]
+#define __pyx_n_u_reduce_ex __pyx_string_tab[123]
+#define __pyx_n_u_register __pyx_string_tab[124]
+#define __pyx_n_u_row __pyx_string_tab[125]
+#define __pyx_n_u_scipy_sparse __pyx_string_tab[126]
+#define __pyx_n_u_set_name __pyx_string_tab[127]
+#define __pyx_n_u_setdefault __pyx_string_tab[128]
+#define __pyx_n_u_setstate __pyx_string_tab[129]
+#define __pyx_n_u_setstate_cython __pyx_string_tab[130]
+#define __pyx_n_u_shape __pyx_string_tab[131]
+#define __pyx_n_u_shuffle_index __pyx_string_tab[132]
+#define __pyx_n_u_shuffle_indices __pyx_string_tab[133]
+#define __pyx_n_u_size __pyx_string_tab[134]
+#define __pyx_n_u_sp __pyx_string_tab[135]
+#define __pyx_n_u_sparse __pyx_string_tab[136]
+#define __pyx_n_u_start __pyx_string_tab[137]
+#define __pyx_n_u_step __pyx_string_tab[138]
+#define __pyx_n_u_stop __pyx_string_tab[139]
+#define __pyx_n_u_struct __pyx_string_tab[140]
+#define __pyx_n_u_sum_gradients __pyx_string_tab[141]
+#define __pyx_n_u_temp_a __pyx_string_tab[142]
+#define __pyx_n_u_temp_b __pyx_string_tab[143]
+#define __pyx_n_u_test __pyx_string_tab[144]
+#define __pyx_n_u_transform_paragraph __pyx_string_tab[145]
+#define __pyx_n_u_unpack __pyx_string_tab[146]
+#define __pyx_n_u_update __pyx_string_tab[147]
+#define __pyx_n_u_values __pyx_string_tab[148]
+#define __pyx_n_u_weighted_loss __pyx_string_tab[149]
+#define __pyx_n_u_word_a __pyx_string_tab[150]
+#define __pyx_n_u_word_b __pyx_string_tab[151]
+#define __pyx_n_u_wordbias __pyx_string_tab[152]
+#define __pyx_n_u_wordbias_sum_gradients __pyx_string_tab[153]
+#define __pyx_n_u_wordvec __pyx_string_tab[154]
+#define __pyx_n_u_wordvec_sum_gradients __pyx_string_tab[155]
+#define __pyx_n_u_x __pyx_string_tab[156]
+#define __pyx_kp_b_iso88591_0_7_6_a_aq_E_aq_O1A_S_F_1_vS_Qa __pyx_string_tab[157]
+#define __pyx_kp_b_iso88591_7_6_a_q_6a_O1A_S_S_F_1_vS_Qa_HA __pyx_string_tab[158]
+#define __pyx_n_b_O __pyx_string_tab[159]
 #define __pyx_int_0 __pyx_number_tab[0]
 #define __pyx_int_neg_1 __pyx_number_tab[1]
 #define __pyx_int_1 __pyx_number_tab[2]
@@ -3336,7 +3333,7 @@ static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
   for (int i=0; i<1; ++i) { Py_CLEAR(clear_module_state->__pyx_slice[i]); }
   for (int i=0; i<1; ++i) { Py_CLEAR(clear_module_state->__pyx_tuple[i]); }
   for (int i=0; i<2; ++i) { Py_CLEAR(clear_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<152; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<160; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
   for (int i=0; i<4; ++i) { Py_CLEAR(clear_module_state->__pyx_number_tab[i]); }
 /* #### Code section: module_state_clear_contents ### */
 /* CommonTypesMetaclass.module_state_clear */
@@ -3371,7 +3368,7 @@ static CYTHON_SMALL_CODE int __pyx_m_traverse(PyObject *m, visitproc visit, void
   for (int i=0; i<1; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_slice[i]); }
   for (int i=0; i<1; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_tuple[i]); }
   for (int i=0; i<2; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<152; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<160; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
   for (int i=0; i<4; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_number_tab[i]); }
 /* #### Code section: module_state_traverse_contents ### */
 /* CommonTypesMetaclass.module_state_traverse */
@@ -16657,8 +16654,8 @@ static PyObject *__pyx_unpickle_Enum__set_state(struct __pyx_MemviewEnum_obj *__
  * 
  * 
  * cdef inline double double_min(double a, double b) nogil: return a if a <= b else b             # <<<<<<<<<<<<<<
+ * cdef inline double double_max(double a, double b) nogil: return a if a >= b else b
  * cdef inline int int_min(int a, int b) nogil: return a if a <= b else b
- * cdef inline int int_max(int a, int b) nogil: return a if a > b else b
 */
 
 static CYTHON_INLINE double __pyx_f_5glove_12glove_cython_double_min(double __pyx_v_a, double __pyx_v_b) {
@@ -16682,6 +16679,32 @@ static CYTHON_INLINE double __pyx_f_5glove_12glove_cython_double_min(double __py
 /* "glove/glove_cython.pyx":11
  * 
  * cdef inline double double_min(double a, double b) nogil: return a if a <= b else b
+ * cdef inline double double_max(double a, double b) nogil: return a if a >= b else b             # <<<<<<<<<<<<<<
+ * cdef inline int int_min(int a, int b) nogil: return a if a <= b else b
+ * cdef inline int int_max(int a, int b) nogil: return a if a > b else b
+*/
+
+static CYTHON_INLINE double __pyx_f_5glove_12glove_cython_double_max(double __pyx_v_a, double __pyx_v_b) {
+  double __pyx_r;
+  double __pyx_t_1;
+  int __pyx_t_2;
+  __pyx_t_2 = (__pyx_v_a >= __pyx_v_b);
+  if (__pyx_t_2) {
+    __pyx_t_1 = __pyx_v_a;
+  } else {
+    __pyx_t_1 = __pyx_v_b;
+  }
+  __pyx_r = __pyx_t_1;
+  goto __pyx_L0;
+
+  /* function exit code */
+  __pyx_L0:;
+  return __pyx_r;
+}
+
+/* "glove/glove_cython.pyx":12
+ * cdef inline double double_min(double a, double b) nogil: return a if a <= b else b
+ * cdef inline double double_max(double a, double b) nogil: return a if a >= b else b
  * cdef inline int int_min(int a, int b) nogil: return a if a <= b else b             # <<<<<<<<<<<<<<
  * cdef inline int int_max(int a, int b) nogil: return a if a > b else b
  * 
@@ -16705,8 +16728,8 @@ static CYTHON_INLINE int __pyx_f_5glove_12glove_cython_int_min(int __pyx_v_a, in
   return __pyx_r;
 }
 
-/* "glove/glove_cython.pyx":12
- * cdef inline double double_min(double a, double b) nogil: return a if a <= b else b
+/* "glove/glove_cython.pyx":13
+ * cdef inline double double_max(double a, double b) nogil: return a if a >= b else b
  * cdef inline int int_min(int a, int b) nogil: return a if a <= b else b
  * cdef inline int int_max(int a, int b) nogil: return a if a > b else b             # <<<<<<<<<<<<<<
  * 
@@ -16731,7 +16754,7 @@ static CYTHON_INLINE int __pyx_f_5glove_12glove_cython_int_max(int __pyx_v_a, in
   return __pyx_r;
 }
 
-/* "glove/glove_cython.pyx":20
+/* "glove/glove_cython.pyx":23
  * 
  * 
  * def fit_vectors(double[:, ::1] wordvec,             # <<<<<<<<<<<<<<
@@ -16791,116 +16814,116 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_wordvec,&__pyx_mstate_global->__pyx_n_u_wordvec_sum_gradients,&__pyx_mstate_global->__pyx_n_u_wordbias,&__pyx_mstate_global->__pyx_n_u_wordbias_sum_gradients,&__pyx_mstate_global->__pyx_n_u_row,&__pyx_mstate_global->__pyx_n_u_col,&__pyx_mstate_global->__pyx_n_u_counts,&__pyx_mstate_global->__pyx_n_u_shuffle_indices,&__pyx_mstate_global->__pyx_n_u_initial_learning_rate,&__pyx_mstate_global->__pyx_n_u_max_count,&__pyx_mstate_global->__pyx_n_u_alpha,&__pyx_mstate_global->__pyx_n_u_max_loss,&__pyx_mstate_global->__pyx_n_u_no_threads,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 20, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 23, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case 13:
         values[12] = __Pyx_ArgRef_FASTCALL(__pyx_args, 12);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[12])) __PYX_ERR(0, 20, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[12])) __PYX_ERR(0, 23, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case 12:
         values[11] = __Pyx_ArgRef_FASTCALL(__pyx_args, 11);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[11])) __PYX_ERR(0, 20, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[11])) __PYX_ERR(0, 23, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case 11:
         values[10] = __Pyx_ArgRef_FASTCALL(__pyx_args, 10);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[10])) __PYX_ERR(0, 20, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[10])) __PYX_ERR(0, 23, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case 10:
         values[9] = __Pyx_ArgRef_FASTCALL(__pyx_args, 9);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[9])) __PYX_ERR(0, 20, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[9])) __PYX_ERR(0, 23, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  9:
         values[8] = __Pyx_ArgRef_FASTCALL(__pyx_args, 8);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[8])) __PYX_ERR(0, 20, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[8])) __PYX_ERR(0, 23, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  8:
         values[7] = __Pyx_ArgRef_FASTCALL(__pyx_args, 7);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[7])) __PYX_ERR(0, 20, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[7])) __PYX_ERR(0, 23, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  7:
         values[6] = __Pyx_ArgRef_FASTCALL(__pyx_args, 6);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[6])) __PYX_ERR(0, 20, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[6])) __PYX_ERR(0, 23, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  6:
         values[5] = __Pyx_ArgRef_FASTCALL(__pyx_args, 5);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[5])) __PYX_ERR(0, 20, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[5])) __PYX_ERR(0, 23, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  5:
         values[4] = __Pyx_ArgRef_FASTCALL(__pyx_args, 4);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[4])) __PYX_ERR(0, 20, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[4])) __PYX_ERR(0, 23, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  4:
         values[3] = __Pyx_ArgRef_FASTCALL(__pyx_args, 3);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 20, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 23, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  3:
         values[2] = __Pyx_ArgRef_FASTCALL(__pyx_args, 2);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 20, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 23, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  2:
         values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 20, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 23, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 20, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 23, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "fit_vectors", 0) < (0)) __PYX_ERR(0, 20, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "fit_vectors", 0) < (0)) __PYX_ERR(0, 23, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 13; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("fit_vectors", 1, 13, 13, i); __PYX_ERR(0, 20, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("fit_vectors", 1, 13, 13, i); __PYX_ERR(0, 23, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 13)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 20, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 23, __pyx_L3_error)
       values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 20, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 23, __pyx_L3_error)
       values[2] = __Pyx_ArgRef_FASTCALL(__pyx_args, 2);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 20, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 23, __pyx_L3_error)
       values[3] = __Pyx_ArgRef_FASTCALL(__pyx_args, 3);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 20, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 23, __pyx_L3_error)
       values[4] = __Pyx_ArgRef_FASTCALL(__pyx_args, 4);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[4])) __PYX_ERR(0, 20, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[4])) __PYX_ERR(0, 23, __pyx_L3_error)
       values[5] = __Pyx_ArgRef_FASTCALL(__pyx_args, 5);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[5])) __PYX_ERR(0, 20, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[5])) __PYX_ERR(0, 23, __pyx_L3_error)
       values[6] = __Pyx_ArgRef_FASTCALL(__pyx_args, 6);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[6])) __PYX_ERR(0, 20, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[6])) __PYX_ERR(0, 23, __pyx_L3_error)
       values[7] = __Pyx_ArgRef_FASTCALL(__pyx_args, 7);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[7])) __PYX_ERR(0, 20, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[7])) __PYX_ERR(0, 23, __pyx_L3_error)
       values[8] = __Pyx_ArgRef_FASTCALL(__pyx_args, 8);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[8])) __PYX_ERR(0, 20, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[8])) __PYX_ERR(0, 23, __pyx_L3_error)
       values[9] = __Pyx_ArgRef_FASTCALL(__pyx_args, 9);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[9])) __PYX_ERR(0, 20, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[9])) __PYX_ERR(0, 23, __pyx_L3_error)
       values[10] = __Pyx_ArgRef_FASTCALL(__pyx_args, 10);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[10])) __PYX_ERR(0, 20, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[10])) __PYX_ERR(0, 23, __pyx_L3_error)
       values[11] = __Pyx_ArgRef_FASTCALL(__pyx_args, 11);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[11])) __PYX_ERR(0, 20, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[11])) __PYX_ERR(0, 23, __pyx_L3_error)
       values[12] = __Pyx_ArgRef_FASTCALL(__pyx_args, 12);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[12])) __PYX_ERR(0, 20, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[12])) __PYX_ERR(0, 23, __pyx_L3_error)
     }
-    __pyx_v_wordvec = __Pyx_PyObject_to_MemoryviewSlice_d_dc_double(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_wordvec.memview)) __PYX_ERR(0, 20, __pyx_L3_error)
-    __pyx_v_wordvec_sum_gradients = __Pyx_PyObject_to_MemoryviewSlice_d_dc_double(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_wordvec_sum_gradients.memview)) __PYX_ERR(0, 21, __pyx_L3_error)
-    __pyx_v_wordbias = __Pyx_PyObject_to_MemoryviewSlice_dc_double(values[2], PyBUF_WRITABLE); if (unlikely(!__pyx_v_wordbias.memview)) __PYX_ERR(0, 22, __pyx_L3_error)
-    __pyx_v_wordbias_sum_gradients = __Pyx_PyObject_to_MemoryviewSlice_dc_double(values[3], PyBUF_WRITABLE); if (unlikely(!__pyx_v_wordbias_sum_gradients.memview)) __PYX_ERR(0, 23, __pyx_L3_error)
-    __pyx_v_row = __Pyx_PyObject_to_MemoryviewSlice_dc_int(values[4], PyBUF_WRITABLE); if (unlikely(!__pyx_v_row.memview)) __PYX_ERR(0, 24, __pyx_L3_error)
-    __pyx_v_col = __Pyx_PyObject_to_MemoryviewSlice_dc_int(values[5], PyBUF_WRITABLE); if (unlikely(!__pyx_v_col.memview)) __PYX_ERR(0, 25, __pyx_L3_error)
-    __pyx_v_counts = __Pyx_PyObject_to_MemoryviewSlice_dc_double(values[6], PyBUF_WRITABLE); if (unlikely(!__pyx_v_counts.memview)) __PYX_ERR(0, 26, __pyx_L3_error)
-    __pyx_v_shuffle_indices = __Pyx_PyObject_to_MemoryviewSlice_dc_int(values[7], PyBUF_WRITABLE); if (unlikely(!__pyx_v_shuffle_indices.memview)) __PYX_ERR(0, 27, __pyx_L3_error)
-    __pyx_v_initial_learning_rate = __Pyx_PyFloat_AsDouble(values[8]); if (unlikely((__pyx_v_initial_learning_rate == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 28, __pyx_L3_error)
-    __pyx_v_max_count = __Pyx_PyFloat_AsDouble(values[9]); if (unlikely((__pyx_v_max_count == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 29, __pyx_L3_error)
-    __pyx_v_alpha = __Pyx_PyFloat_AsDouble(values[10]); if (unlikely((__pyx_v_alpha == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 30, __pyx_L3_error)
-    __pyx_v_max_loss = __Pyx_PyFloat_AsDouble(values[11]); if (unlikely((__pyx_v_max_loss == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 31, __pyx_L3_error)
-    __pyx_v_no_threads = __Pyx_PyLong_As_int(values[12]); if (unlikely((__pyx_v_no_threads == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 32, __pyx_L3_error)
+    __pyx_v_wordvec = __Pyx_PyObject_to_MemoryviewSlice_d_dc_double(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_wordvec.memview)) __PYX_ERR(0, 23, __pyx_L3_error)
+    __pyx_v_wordvec_sum_gradients = __Pyx_PyObject_to_MemoryviewSlice_d_dc_double(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_wordvec_sum_gradients.memview)) __PYX_ERR(0, 24, __pyx_L3_error)
+    __pyx_v_wordbias = __Pyx_PyObject_to_MemoryviewSlice_dc_double(values[2], PyBUF_WRITABLE); if (unlikely(!__pyx_v_wordbias.memview)) __PYX_ERR(0, 25, __pyx_L3_error)
+    __pyx_v_wordbias_sum_gradients = __Pyx_PyObject_to_MemoryviewSlice_dc_double(values[3], PyBUF_WRITABLE); if (unlikely(!__pyx_v_wordbias_sum_gradients.memview)) __PYX_ERR(0, 26, __pyx_L3_error)
+    __pyx_v_row = __Pyx_PyObject_to_MemoryviewSlice_dc_int(values[4], PyBUF_WRITABLE); if (unlikely(!__pyx_v_row.memview)) __PYX_ERR(0, 27, __pyx_L3_error)
+    __pyx_v_col = __Pyx_PyObject_to_MemoryviewSlice_dc_int(values[5], PyBUF_WRITABLE); if (unlikely(!__pyx_v_col.memview)) __PYX_ERR(0, 28, __pyx_L3_error)
+    __pyx_v_counts = __Pyx_PyObject_to_MemoryviewSlice_dc_double(values[6], PyBUF_WRITABLE); if (unlikely(!__pyx_v_counts.memview)) __PYX_ERR(0, 29, __pyx_L3_error)
+    __pyx_v_shuffle_indices = __Pyx_PyObject_to_MemoryviewSlice_dc_int(values[7], PyBUF_WRITABLE); if (unlikely(!__pyx_v_shuffle_indices.memview)) __PYX_ERR(0, 30, __pyx_L3_error)
+    __pyx_v_initial_learning_rate = __Pyx_PyFloat_AsDouble(values[8]); if (unlikely((__pyx_v_initial_learning_rate == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 31, __pyx_L3_error)
+    __pyx_v_max_count = __Pyx_PyFloat_AsDouble(values[9]); if (unlikely((__pyx_v_max_count == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 32, __pyx_L3_error)
+    __pyx_v_alpha = __Pyx_PyFloat_AsDouble(values[10]); if (unlikely((__pyx_v_alpha == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 33, __pyx_L3_error)
+    __pyx_v_max_loss = __Pyx_PyFloat_AsDouble(values[11]); if (unlikely((__pyx_v_max_loss == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 34, __pyx_L3_error)
+    __pyx_v_no_threads = __Pyx_PyLong_As_int(values[12]); if (unlikely((__pyx_v_no_threads == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 35, __pyx_L3_error)
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("fit_vectors", 1, 13, 13, __pyx_nargs); __PYX_ERR(0, 20, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("fit_vectors", 1, 13, 13, __pyx_nargs); __PYX_ERR(0, 23, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -16945,9 +16968,16 @@ static PyObject *__pyx_pf_5glove_12glove_cython_fit_vectors(CYTHON_UNUSED PyObje
   double __pyx_v_count;
   double __pyx_v_learning_rate;
   double __pyx_v_gradient;
+  double __pyx_v_gradient_sq;
+  double __pyx_v_log_count;
+  double __pyx_v_ratio;
   double __pyx_v_prediction;
   double __pyx_v_entry_weight;
   double __pyx_v_loss;
+  double __pyx_v_temp_a;
+  double __pyx_v_temp_b;
+  double __pyx_v_weighted_loss;
+  double __pyx_v_eps;
   int __pyx_v_i;
   int __pyx_v_j;
   int __pyx_v_shuffle_index;
@@ -16958,19 +16988,15 @@ static PyObject *__pyx_pf_5glove_12glove_cython_fit_vectors(CYTHON_UNUSED PyObje
   int __pyx_t_3;
   Py_ssize_t __pyx_t_4;
   int __pyx_t_5;
-  int __pyx_t_6;
+  Py_ssize_t __pyx_t_6;
   int __pyx_t_7;
-  Py_ssize_t __pyx_t_8;
-  Py_ssize_t __pyx_t_9;
+  int __pyx_t_8;
+  int __pyx_t_9;
   Py_ssize_t __pyx_t_10;
-  double __pyx_t_11;
-  int __pyx_t_12;
-  int __pyx_lineno = 0;
-  const char *__pyx_filename = NULL;
-  int __pyx_clineno = 0;
+  Py_ssize_t __pyx_t_11;
   __Pyx_RefNannySetupContext("fit_vectors", 0);
 
-  /* "glove/glove_cython.pyx":43
+  /* "glove/glove_cython.pyx":46
  *     # Get number of latent dimensions and
  *     # number of cooccurrences.
  *     cdef int dim = wordvec.shape[1]             # <<<<<<<<<<<<<<
@@ -16979,7 +17005,7 @@ static PyObject *__pyx_pf_5glove_12glove_cython_fit_vectors(CYTHON_UNUSED PyObje
 */
   __pyx_v_dim = (__pyx_v_wordvec.shape[1]);
 
-  /* "glove/glove_cython.pyx":44
+  /* "glove/glove_cython.pyx":47
  *     # number of cooccurrences.
  *     cdef int dim = wordvec.shape[1]
  *     cdef int no_cooccurrences = row.shape[0]             # <<<<<<<<<<<<<<
@@ -16988,7 +17014,16 @@ static PyObject *__pyx_pf_5glove_12glove_cython_fit_vectors(CYTHON_UNUSED PyObje
 */
   __pyx_v_no_cooccurrences = (__pyx_v_row.shape[0]);
 
-  /* "glove/glove_cython.pyx":59
+  /* "glove/glove_cython.pyx":60
+ *     # Temporary variables for better optimization
+ *     cdef double temp_a, temp_b, weighted_loss
+ *     cdef double eps = 1e-8  # Small constant for numerical stability             # <<<<<<<<<<<<<<
+ * 
+ *     # Iteration variables
+*/
+  __pyx_v_eps = 1e-8;
+
+  /* "glove/glove_cython.pyx":67
  *     # We iterate over random indices to simulate
  *     # shuffling the cooccurrence matrix.
  *     with nogil:             # <<<<<<<<<<<<<<
@@ -17001,7 +17036,7 @@ static PyObject *__pyx_pf_5glove_12glove_cython_fit_vectors(CYTHON_UNUSED PyObje
       __Pyx_FastGIL_Remember();
       /*try:*/ {
 
-        /* "glove/glove_cython.pyx":60
+        /* "glove/glove_cython.pyx":68
  *     # shuffling the cooccurrence matrix.
  *     with nogil:
  *         for j in prange(no_cooccurrences, num_threads=no_threads,             # <<<<<<<<<<<<<<
@@ -17010,13 +17045,6 @@ static PyObject *__pyx_pf_5glove_12glove_cython_fit_vectors(CYTHON_UNUSED PyObje
 */
         __pyx_t_1 = __pyx_v_no_cooccurrences;
         {
-            const char *__pyx_parallel_filename = NULL; int __pyx_parallel_lineno = 0, __pyx_parallel_clineno = 0;
-            PyObject *__pyx_parallel_exc_type = NULL, *__pyx_parallel_exc_value = NULL, *__pyx_parallel_exc_tb = NULL;
-            #if CYTHON_COMPILING_IN_CPYTHON_FREETHREADING
-            PyMutex __pyx_parallel_freethreading_mutex = {0};
-            #endif
-            int __pyx_parallel_why;
-            __pyx_parallel_why = 0;
             #if ((defined(__APPLE__) || defined(__OSX__)) && (defined(__GNUC__) && (__GNUC__ > 2 || (__GNUC__ == 2 && (__GNUC_MINOR__ > 95)))))
                 #undef likely
                 #undef unlikely
@@ -17027,22 +17055,17 @@ static PyObject *__pyx_pf_5glove_12glove_cython_fit_vectors(CYTHON_UNUSED PyObje
             if (__pyx_t_3 > 0)
             {
                 #ifdef _OPENMP
-                #pragma omp parallel num_threads(__pyx_v_no_threads) private(__pyx_t_10, __pyx_t_11, __pyx_t_12, __pyx_t_4, __pyx_t_5, __pyx_t_6, __pyx_t_7, __pyx_t_8, __pyx_t_9) __Pyx_shared_in_cpython_freethreading(__pyx_parallel_freethreading_mutex) private(__pyx_filename, __pyx_lineno, __pyx_clineno) shared(__pyx_parallel_why, __pyx_parallel_exc_type, __pyx_parallel_exc_value, __pyx_parallel_exc_tb)
+                #pragma omp parallel num_threads(__pyx_v_no_threads) private(__pyx_t_10, __pyx_t_11, __pyx_t_4, __pyx_t_5, __pyx_t_6, __pyx_t_7, __pyx_t_8, __pyx_t_9)
                 #endif /* _OPENMP */
                 {
                     #ifdef _OPENMP
-                    PyGILState_STATE __pyx_gilstate_save = __Pyx_PyGILState_Ensure();
-                    Py_BEGIN_ALLOW_THREADS
-                    #endif /* _OPENMP */
-                    #ifdef _OPENMP
-                    #pragma omp for firstprivate(__pyx_v_count) lastprivate(__pyx_v_count) firstprivate(__pyx_v_entry_weight) lastprivate(__pyx_v_entry_weight) firstprivate(__pyx_v_gradient) lastprivate(__pyx_v_gradient) firstprivate(__pyx_v_i) lastprivate(__pyx_v_i) firstprivate(__pyx_v_j) lastprivate(__pyx_v_j) firstprivate(__pyx_v_learning_rate) lastprivate(__pyx_v_learning_rate) firstprivate(__pyx_v_loss) lastprivate(__pyx_v_loss) firstprivate(__pyx_v_prediction) lastprivate(__pyx_v_prediction) firstprivate(__pyx_v_shuffle_index) lastprivate(__pyx_v_shuffle_index) firstprivate(__pyx_v_word_a) lastprivate(__pyx_v_word_a) firstprivate(__pyx_v_word_b) lastprivate(__pyx_v_word_b) schedule(dynamic)
+                    #pragma omp for firstprivate(__pyx_v_count) lastprivate(__pyx_v_count) firstprivate(__pyx_v_entry_weight) lastprivate(__pyx_v_entry_weight) firstprivate(__pyx_v_gradient) lastprivate(__pyx_v_gradient) firstprivate(__pyx_v_gradient_sq) lastprivate(__pyx_v_gradient_sq) firstprivate(__pyx_v_i) lastprivate(__pyx_v_i) firstprivate(__pyx_v_j) lastprivate(__pyx_v_j) firstprivate(__pyx_v_learning_rate) lastprivate(__pyx_v_learning_rate) firstprivate(__pyx_v_log_count) lastprivate(__pyx_v_log_count) firstprivate(__pyx_v_loss) lastprivate(__pyx_v_loss) firstprivate(__pyx_v_prediction) lastprivate(__pyx_v_prediction) firstprivate(__pyx_v_ratio) lastprivate(__pyx_v_ratio) firstprivate(__pyx_v_shuffle_index) lastprivate(__pyx_v_shuffle_index) firstprivate(__pyx_v_temp_a) lastprivate(__pyx_v_temp_a) firstprivate(__pyx_v_temp_b) lastprivate(__pyx_v_temp_b) firstprivate(__pyx_v_weighted_loss) lastprivate(__pyx_v_weighted_loss) firstprivate(__pyx_v_word_a) lastprivate(__pyx_v_word_a) firstprivate(__pyx_v_word_b) lastprivate(__pyx_v_word_b) schedule(dynamic)
                     #endif /* _OPENMP */
                     for (__pyx_t_2 = 0; __pyx_t_2 < __pyx_t_3; __pyx_t_2++){
-                        if (__pyx_parallel_why < 2)
                         {
                             __pyx_v_j = (int)(0 + 1 * __pyx_t_2);
 
-                            /* "glove/glove_cython.pyx":62
+                            /* "glove/glove_cython.pyx":70
  *         for j in prange(no_cooccurrences, num_threads=no_threads,
  *                         schedule='dynamic'):
  *             shuffle_index = shuffle_indices[j]             # <<<<<<<<<<<<<<
@@ -17052,7 +17075,7 @@ static PyObject *__pyx_pf_5glove_12glove_cython_fit_vectors(CYTHON_UNUSED PyObje
                             __pyx_t_4 = __pyx_v_j;
                             __pyx_v_shuffle_index = (*((int *) ( /* dim=0 */ ((char *) (((int *) __pyx_v_shuffle_indices.data) + __pyx_t_4)) )));
 
-                            /* "glove/glove_cython.pyx":63
+                            /* "glove/glove_cython.pyx":71
  *                         schedule='dynamic'):
  *             shuffle_index = shuffle_indices[j]
  *             word_a = row[shuffle_index]             # <<<<<<<<<<<<<<
@@ -17062,7 +17085,7 @@ static PyObject *__pyx_pf_5glove_12glove_cython_fit_vectors(CYTHON_UNUSED PyObje
                             __pyx_t_4 = __pyx_v_shuffle_index;
                             __pyx_v_word_a = (*((int *) ( /* dim=0 */ ((char *) (((int *) __pyx_v_row.data) + __pyx_t_4)) )));
 
-                            /* "glove/glove_cython.pyx":64
+                            /* "glove/glove_cython.pyx":72
  *             shuffle_index = shuffle_indices[j]
  *             word_a = row[shuffle_index]
  *             word_b = col[shuffle_index]             # <<<<<<<<<<<<<<
@@ -17072,93 +17095,161 @@ static PyObject *__pyx_pf_5glove_12glove_cython_fit_vectors(CYTHON_UNUSED PyObje
                             __pyx_t_4 = __pyx_v_shuffle_index;
                             __pyx_v_word_b = (*((int *) ( /* dim=0 */ ((char *) (((int *) __pyx_v_col.data) + __pyx_t_4)) )));
 
-                            /* "glove/glove_cython.pyx":65
+                            /* "glove/glove_cython.pyx":73
  *             word_a = row[shuffle_index]
  *             word_b = col[shuffle_index]
  *             count = counts[shuffle_index]             # <<<<<<<<<<<<<<
  * 
- *             # Get prediction
+ *             # Skip invalid entries for robustness
 */
                             __pyx_t_4 = __pyx_v_shuffle_index;
                             __pyx_v_count = (*((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_counts.data) + __pyx_t_4)) )));
 
-                            /* "glove/glove_cython.pyx":68
+                            /* "glove/glove_cython.pyx":76
  * 
- *             # Get prediction
- *             prediction = 0.0             # <<<<<<<<<<<<<<
+ *             # Skip invalid entries for robustness
+ *             if count <= 0.0:             # <<<<<<<<<<<<<<
+ *                 continue
  * 
- *             for i in range(dim):
 */
-                            __pyx_v_prediction = 0.0;
+                            __pyx_t_5 = (__pyx_v_count <= 0.0);
+                            if (__pyx_t_5) {
 
-                            /* "glove/glove_cython.pyx":70
- *             prediction = 0.0
+                              /* "glove/glove_cython.pyx":77
+ *             # Skip invalid entries for robustness
+ *             if count <= 0.0:
+ *                 continue             # <<<<<<<<<<<<<<
  * 
+ *             # Compute log once for better efficiency
+*/
+                              goto __pyx_L6_continue;
+
+                              /* "glove/glove_cython.pyx":76
+ * 
+ *             # Skip invalid entries for robustness
+ *             if count <= 0.0:             # <<<<<<<<<<<<<<
+ *                 continue
+ * 
+*/
+                            }
+
+                            /* "glove/glove_cython.pyx":80
+ * 
+ *             # Compute log once for better efficiency
+ *             log_count = c_log(count)             # <<<<<<<<<<<<<<
+ * 
+ *             # Get prediction (dot product)
+*/
+                            __pyx_v_log_count = log(__pyx_v_count);
+
+                            /* "glove/glove_cython.pyx":83
+ * 
+ *             # Get prediction (dot product)
+ *             prediction = wordbias[word_a] + wordbias[word_b]             # <<<<<<<<<<<<<<
+ *             for i in range(dim):
+ *                 prediction = prediction + wordvec[word_a, i] * wordvec[word_b, i]
+*/
+                            __pyx_t_4 = __pyx_v_word_a;
+                            __pyx_t_6 = __pyx_v_word_b;
+                            __pyx_v_prediction = ((*((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_wordbias.data) + __pyx_t_4)) ))) + (*((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_wordbias.data) + __pyx_t_6)) ))));
+
+                            /* "glove/glove_cython.pyx":84
+ *             # Get prediction (dot product)
+ *             prediction = wordbias[word_a] + wordbias[word_b]
  *             for i in range(dim):             # <<<<<<<<<<<<<<
  *                 prediction = prediction + wordvec[word_a, i] * wordvec[word_b, i]
  * 
 */
-                            __pyx_t_5 = __pyx_v_dim;
-                            __pyx_t_6 = __pyx_t_5;
-                            for (__pyx_t_7 = 0; __pyx_t_7 < __pyx_t_6; __pyx_t_7+=1) {
-                              __pyx_v_i = __pyx_t_7;
+                            __pyx_t_7 = __pyx_v_dim;
+                            __pyx_t_8 = __pyx_t_7;
+                            for (__pyx_t_9 = 0; __pyx_t_9 < __pyx_t_8; __pyx_t_9+=1) {
+                              __pyx_v_i = __pyx_t_9;
 
-                              /* "glove/glove_cython.pyx":71
- * 
+                              /* "glove/glove_cython.pyx":85
+ *             prediction = wordbias[word_a] + wordbias[word_b]
  *             for i in range(dim):
  *                 prediction = prediction + wordvec[word_a, i] * wordvec[word_b, i]             # <<<<<<<<<<<<<<
  * 
- *             prediction = prediction + wordbias[word_a] + wordbias[word_b]
+ *             # Compute loss and the example weight.
 */
-                              __pyx_t_4 = __pyx_v_word_a;
-                              __pyx_t_8 = __pyx_v_i;
-                              __pyx_t_9 = __pyx_v_word_b;
-                              __pyx_t_10 = __pyx_v_i;
-                              __pyx_v_prediction = (__pyx_v_prediction + ((*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_wordvec.data + __pyx_t_4 * __pyx_v_wordvec.strides[0]) )) + __pyx_t_8)) ))) * (*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_wordvec.data + __pyx_t_9 * __pyx_v_wordvec.strides[0]) )) + __pyx_t_10)) )))));
+                              __pyx_t_6 = __pyx_v_word_a;
+                              __pyx_t_4 = __pyx_v_i;
+                              __pyx_t_10 = __pyx_v_word_b;
+                              __pyx_t_11 = __pyx_v_i;
+                              __pyx_v_prediction = (__pyx_v_prediction + ((*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_wordvec.data + __pyx_t_6 * __pyx_v_wordvec.strides[0]) )) + __pyx_t_4)) ))) * (*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_wordvec.data + __pyx_t_10 * __pyx_v_wordvec.strides[0]) )) + __pyx_t_11)) )))));
                             }
 
-                            /* "glove/glove_cython.pyx":73
- *                 prediction = prediction + wordvec[word_a, i] * wordvec[word_b, i]
- * 
- *             prediction = prediction + wordbias[word_a] + wordbias[word_b]             # <<<<<<<<<<<<<<
- * 
+                            /* "glove/glove_cython.pyx":89
  *             # Compute loss and the example weight.
+ *             # Use more stable computation of the weight
+ *             ratio = count / max_count             # <<<<<<<<<<<<<<
+ *             if ratio > 1.0:
+ *                 entry_weight = 1.0
 */
-                            __pyx_t_10 = __pyx_v_word_a;
-                            __pyx_t_9 = __pyx_v_word_b;
-                            __pyx_v_prediction = ((__pyx_v_prediction + (*((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_wordbias.data) + __pyx_t_10)) )))) + (*((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_wordbias.data) + __pyx_t_9)) ))));
+                            __pyx_v_ratio = (__pyx_v_count / __pyx_v_max_count);
 
-                            /* "glove/glove_cython.pyx":76
- * 
- *             # Compute loss and the example weight.
- *             entry_weight = double_min(1.0, (count / max_count)) ** alpha             # <<<<<<<<<<<<<<
- *             loss = entry_weight * (prediction - c_log(count))
- * 
+                            /* "glove/glove_cython.pyx":90
+ *             # Use more stable computation of the weight
+ *             ratio = count / max_count
+ *             if ratio > 1.0:             # <<<<<<<<<<<<<<
+ *                 entry_weight = 1.0
+ *             else:
 */
-                            __pyx_t_11 = __pyx_f_5glove_12glove_cython_double_min(1.0, (__pyx_v_count / __pyx_v_max_count)); if (unlikely(__pyx_t_11 == ((double)-1) && __Pyx_ErrOccurredWithGIL())) __PYX_ERR(0, 76, __pyx_L8_error)
-                            __pyx_v_entry_weight = pow(__pyx_t_11, __pyx_v_alpha);
+                            __pyx_t_5 = (__pyx_v_ratio > 1.0);
+                            if (__pyx_t_5) {
 
-                            /* "glove/glove_cython.pyx":77
- *             # Compute loss and the example weight.
- *             entry_weight = double_min(1.0, (count / max_count)) ** alpha
- *             loss = entry_weight * (prediction - c_log(count))             # <<<<<<<<<<<<<<
- * 
- *             # Clip the loss for numerical stability.
+                              /* "glove/glove_cython.pyx":91
+ *             ratio = count / max_count
+ *             if ratio > 1.0:
+ *                 entry_weight = 1.0             # <<<<<<<<<<<<<<
+ *             else:
+ *                 entry_weight = ratio ** alpha
 */
-                            __pyx_v_loss = (__pyx_v_entry_weight * (__pyx_v_prediction - log(__pyx_v_count)));
+                              __pyx_v_entry_weight = 1.0;
 
-                            /* "glove/glove_cython.pyx":80
+                              /* "glove/glove_cython.pyx":90
+ *             # Use more stable computation of the weight
+ *             ratio = count / max_count
+ *             if ratio > 1.0:             # <<<<<<<<<<<<<<
+ *                 entry_weight = 1.0
+ *             else:
+*/
+                              goto __pyx_L13;
+                            }
+
+                            /* "glove/glove_cython.pyx":93
+ *                 entry_weight = 1.0
+ *             else:
+ *                 entry_weight = ratio ** alpha             # <<<<<<<<<<<<<<
  * 
- *             # Clip the loss for numerical stability.
+ *             # Compute weighted loss
+*/
+                            /*else*/ {
+                              __pyx_v_entry_weight = pow(__pyx_v_ratio, __pyx_v_alpha);
+                            }
+                            __pyx_L13:;
+
+                            /* "glove/glove_cython.pyx":96
+ * 
+ *             # Compute weighted loss
+ *             loss = prediction - log_count             # <<<<<<<<<<<<<<
+ * 
+ *             # Clip the loss for numerical stability (before weighting).
+*/
+                            __pyx_v_loss = (__pyx_v_prediction - __pyx_v_log_count);
+
+                            /* "glove/glove_cython.pyx":99
+ * 
+ *             # Clip the loss for numerical stability (before weighting).
  *             if loss < -max_loss:             # <<<<<<<<<<<<<<
  *                 loss = -max_loss
  *             elif loss > max_loss:
 */
-                            __pyx_t_12 = (__pyx_v_loss < (-__pyx_v_max_loss));
-                            if (__pyx_t_12) {
+                            __pyx_t_5 = (__pyx_v_loss < (-__pyx_v_max_loss));
+                            if (__pyx_t_5) {
 
-                              /* "glove/glove_cython.pyx":81
- *             # Clip the loss for numerical stability.
+                              /* "glove/glove_cython.pyx":100
+ *             # Clip the loss for numerical stability (before weighting).
  *             if loss < -max_loss:
  *                 loss = -max_loss             # <<<<<<<<<<<<<<
  *             elif loss > max_loss:
@@ -17166,36 +17257,36 @@ static PyObject *__pyx_pf_5glove_12glove_cython_fit_vectors(CYTHON_UNUSED PyObje
 */
                               __pyx_v_loss = (-__pyx_v_max_loss);
 
-                              /* "glove/glove_cython.pyx":80
+                              /* "glove/glove_cython.pyx":99
  * 
- *             # Clip the loss for numerical stability.
+ *             # Clip the loss for numerical stability (before weighting).
  *             if loss < -max_loss:             # <<<<<<<<<<<<<<
  *                 loss = -max_loss
  *             elif loss > max_loss:
 */
-                              goto __pyx_L12;
+                              goto __pyx_L14;
                             }
 
-                            /* "glove/glove_cython.pyx":82
+                            /* "glove/glove_cython.pyx":101
  *             if loss < -max_loss:
  *                 loss = -max_loss
  *             elif loss > max_loss:             # <<<<<<<<<<<<<<
  *                 loss = max_loss
  * 
 */
-                            __pyx_t_12 = (__pyx_v_loss > __pyx_v_max_loss);
-                            if (__pyx_t_12) {
+                            __pyx_t_5 = (__pyx_v_loss > __pyx_v_max_loss);
+                            if (__pyx_t_5) {
 
-                              /* "glove/glove_cython.pyx":83
+                              /* "glove/glove_cython.pyx":102
  *                 loss = -max_loss
  *             elif loss > max_loss:
  *                 loss = max_loss             # <<<<<<<<<<<<<<
  * 
- *             # Update step: apply gradients and reproject
+ *             weighted_loss = entry_weight * loss
 */
                               __pyx_v_loss = __pyx_v_max_loss;
 
-                              /* "glove/glove_cython.pyx":82
+                              /* "glove/glove_cython.pyx":101
  *             if loss < -max_loss:
  *                 loss = -max_loss
  *             elif loss > max_loss:             # <<<<<<<<<<<<<<
@@ -17203,251 +17294,224 @@ static PyObject *__pyx_pf_5glove_12glove_cython_fit_vectors(CYTHON_UNUSED PyObje
  * 
 */
                             }
-                            __pyx_L12:;
-
-                            /* "glove/glove_cython.pyx":87
- *             # Update step: apply gradients and reproject
- *             # onto the unit sphere.
- *             for i in range(dim):             # <<<<<<<<<<<<<<
- * 
- *                 learning_rate = initial_learning_rate / sqrt(wordvec_sum_gradients[word_a, i])
-*/
-                            __pyx_t_5 = __pyx_v_dim;
-                            __pyx_t_6 = __pyx_t_5;
-                            for (__pyx_t_7 = 0; __pyx_t_7 < __pyx_t_6; __pyx_t_7+=1) {
-                              __pyx_v_i = __pyx_t_7;
-
-                              /* "glove/glove_cython.pyx":89
- *             for i in range(dim):
- * 
- *                 learning_rate = initial_learning_rate / sqrt(wordvec_sum_gradients[word_a, i])             # <<<<<<<<<<<<<<
- *                 gradient = loss * wordvec[word_b, i]
- *                 wordvec[word_a, i] = (wordvec[word_a, i] - learning_rate
-*/
-                              __pyx_t_9 = __pyx_v_word_a;
-                              __pyx_t_10 = __pyx_v_i;
-                              __pyx_v_learning_rate = (__pyx_v_initial_learning_rate / sqrt((*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_wordvec_sum_gradients.data + __pyx_t_9 * __pyx_v_wordvec_sum_gradients.strides[0]) )) + __pyx_t_10)) )))));
-
-                              /* "glove/glove_cython.pyx":90
- * 
- *                 learning_rate = initial_learning_rate / sqrt(wordvec_sum_gradients[word_a, i])
- *                 gradient = loss * wordvec[word_b, i]             # <<<<<<<<<<<<<<
- *                 wordvec[word_a, i] = (wordvec[word_a, i] - learning_rate
- *                                       * gradient)
-*/
-                              __pyx_t_10 = __pyx_v_word_b;
-                              __pyx_t_9 = __pyx_v_i;
-                              __pyx_v_gradient = (__pyx_v_loss * (*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_wordvec.data + __pyx_t_10 * __pyx_v_wordvec.strides[0]) )) + __pyx_t_9)) ))));
-
-                              /* "glove/glove_cython.pyx":91
- *                 learning_rate = initial_learning_rate / sqrt(wordvec_sum_gradients[word_a, i])
- *                 gradient = loss * wordvec[word_b, i]
- *                 wordvec[word_a, i] = (wordvec[word_a, i] - learning_rate             # <<<<<<<<<<<<<<
- *                                       * gradient)
- *                 wordvec_sum_gradients[word_a, i] += gradient ** 2
-*/
-                              __pyx_t_9 = __pyx_v_word_a;
-                              __pyx_t_10 = __pyx_v_i;
-
-                              /* "glove/glove_cython.pyx":92
- *                 gradient = loss * wordvec[word_b, i]
- *                 wordvec[word_a, i] = (wordvec[word_a, i] - learning_rate
- *                                       * gradient)             # <<<<<<<<<<<<<<
- *                 wordvec_sum_gradients[word_a, i] += gradient ** 2
- * 
-*/
-                              __pyx_t_8 = __pyx_v_word_a;
-                              __pyx_t_4 = __pyx_v_i;
-                              *((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_wordvec.data + __pyx_t_8 * __pyx_v_wordvec.strides[0]) )) + __pyx_t_4)) )) = ((*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_wordvec.data + __pyx_t_9 * __pyx_v_wordvec.strides[0]) )) + __pyx_t_10)) ))) - (__pyx_v_learning_rate * __pyx_v_gradient));
-
-                              /* "glove/glove_cython.pyx":93
- *                 wordvec[word_a, i] = (wordvec[word_a, i] - learning_rate
- *                                       * gradient)
- *                 wordvec_sum_gradients[word_a, i] += gradient ** 2             # <<<<<<<<<<<<<<
- * 
- *                 learning_rate = initial_learning_rate / sqrt(wordvec_sum_gradients[word_b, i])
-*/
-                              __pyx_t_10 = __pyx_v_word_a;
-                              __pyx_t_9 = __pyx_v_i;
-                              *((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_wordvec_sum_gradients.data + __pyx_t_10 * __pyx_v_wordvec_sum_gradients.strides[0]) )) + __pyx_t_9)) )) += pow(__pyx_v_gradient, 2.0);
-
-                              /* "glove/glove_cython.pyx":95
- *                 wordvec_sum_gradients[word_a, i] += gradient ** 2
- * 
- *                 learning_rate = initial_learning_rate / sqrt(wordvec_sum_gradients[word_b, i])             # <<<<<<<<<<<<<<
- *                 gradient = loss * wordvec[word_a, i]
- *                 wordvec[word_b, i] = (wordvec[word_b, i] - learning_rate
-*/
-                              __pyx_t_9 = __pyx_v_word_b;
-                              __pyx_t_10 = __pyx_v_i;
-                              __pyx_v_learning_rate = (__pyx_v_initial_learning_rate / sqrt((*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_wordvec_sum_gradients.data + __pyx_t_9 * __pyx_v_wordvec_sum_gradients.strides[0]) )) + __pyx_t_10)) )))));
-
-                              /* "glove/glove_cython.pyx":96
- * 
- *                 learning_rate = initial_learning_rate / sqrt(wordvec_sum_gradients[word_b, i])
- *                 gradient = loss * wordvec[word_a, i]             # <<<<<<<<<<<<<<
- *                 wordvec[word_b, i] = (wordvec[word_b, i] - learning_rate
- *                                       * gradient)
-*/
-                              __pyx_t_10 = __pyx_v_word_a;
-                              __pyx_t_9 = __pyx_v_i;
-                              __pyx_v_gradient = (__pyx_v_loss * (*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_wordvec.data + __pyx_t_10 * __pyx_v_wordvec.strides[0]) )) + __pyx_t_9)) ))));
-
-                              /* "glove/glove_cython.pyx":97
- *                 learning_rate = initial_learning_rate / sqrt(wordvec_sum_gradients[word_b, i])
- *                 gradient = loss * wordvec[word_a, i]
- *                 wordvec[word_b, i] = (wordvec[word_b, i] - learning_rate             # <<<<<<<<<<<<<<
- *                                       * gradient)
- *                 wordvec_sum_gradients[word_b, i] += gradient ** 2
-*/
-                              __pyx_t_9 = __pyx_v_word_b;
-                              __pyx_t_10 = __pyx_v_i;
-
-                              /* "glove/glove_cython.pyx":98
- *                 gradient = loss * wordvec[word_a, i]
- *                 wordvec[word_b, i] = (wordvec[word_b, i] - learning_rate
- *                                       * gradient)             # <<<<<<<<<<<<<<
- *                 wordvec_sum_gradients[word_b, i] += gradient ** 2
- * 
-*/
-                              __pyx_t_4 = __pyx_v_word_b;
-                              __pyx_t_8 = __pyx_v_i;
-                              *((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_wordvec.data + __pyx_t_4 * __pyx_v_wordvec.strides[0]) )) + __pyx_t_8)) )) = ((*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_wordvec.data + __pyx_t_9 * __pyx_v_wordvec.strides[0]) )) + __pyx_t_10)) ))) - (__pyx_v_learning_rate * __pyx_v_gradient));
-
-                              /* "glove/glove_cython.pyx":99
- *                 wordvec[word_b, i] = (wordvec[word_b, i] - learning_rate
- *                                       * gradient)
- *                 wordvec_sum_gradients[word_b, i] += gradient ** 2             # <<<<<<<<<<<<<<
- * 
- *             # Update word biases.
-*/
-                              __pyx_t_10 = __pyx_v_word_b;
-                              __pyx_t_9 = __pyx_v_i;
-                              *((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_wordvec_sum_gradients.data + __pyx_t_10 * __pyx_v_wordvec_sum_gradients.strides[0]) )) + __pyx_t_9)) )) += pow(__pyx_v_gradient, 2.0);
-                            }
-
-                            /* "glove/glove_cython.pyx":102
- * 
- *             # Update word biases.
- *             learning_rate = initial_learning_rate / sqrt(wordbias_sum_gradients[word_a])             # <<<<<<<<<<<<<<
- *             wordbias[word_a] -= learning_rate * loss
- *             wordbias_sum_gradients[word_a] += loss ** 2
-*/
-                            __pyx_t_9 = __pyx_v_word_a;
-                            __pyx_v_learning_rate = (__pyx_v_initial_learning_rate / sqrt((*((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_wordbias_sum_gradients.data) + __pyx_t_9)) )))));
-
-                            /* "glove/glove_cython.pyx":103
- *             # Update word biases.
- *             learning_rate = initial_learning_rate / sqrt(wordbias_sum_gradients[word_a])
- *             wordbias[word_a] -= learning_rate * loss             # <<<<<<<<<<<<<<
- *             wordbias_sum_gradients[word_a] += loss ** 2
- * 
-*/
-                            __pyx_t_9 = __pyx_v_word_a;
-                            *((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_wordbias.data) + __pyx_t_9)) )) -= (__pyx_v_learning_rate * __pyx_v_loss);
+                            __pyx_L14:;
 
                             /* "glove/glove_cython.pyx":104
- *             learning_rate = initial_learning_rate / sqrt(wordbias_sum_gradients[word_a])
- *             wordbias[word_a] -= learning_rate * loss
- *             wordbias_sum_gradients[word_a] += loss ** 2             # <<<<<<<<<<<<<<
+ *                 loss = max_loss
  * 
- *             learning_rate = initial_learning_rate / sqrt(wordbias_sum_gradients[word_b])
+ *             weighted_loss = entry_weight * loss             # <<<<<<<<<<<<<<
+ * 
+ *             # Update step: apply gradients using AdaGrad
 */
-                            __pyx_t_9 = __pyx_v_word_a;
-                            *((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_wordbias_sum_gradients.data) + __pyx_t_9)) )) += pow(__pyx_v_loss, 2.0);
-
-                            /* "glove/glove_cython.pyx":106
- *             wordbias_sum_gradients[word_a] += loss ** 2
- * 
- *             learning_rate = initial_learning_rate / sqrt(wordbias_sum_gradients[word_b])             # <<<<<<<<<<<<<<
- *             wordbias[word_b] -= learning_rate * loss
- *             wordbias_sum_gradients[word_b] += loss ** 2
-*/
-                            __pyx_t_9 = __pyx_v_word_b;
-                            __pyx_v_learning_rate = (__pyx_v_initial_learning_rate / sqrt((*((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_wordbias_sum_gradients.data) + __pyx_t_9)) )))));
-
-                            /* "glove/glove_cython.pyx":107
- * 
- *             learning_rate = initial_learning_rate / sqrt(wordbias_sum_gradients[word_b])
- *             wordbias[word_b] -= learning_rate * loss             # <<<<<<<<<<<<<<
- *             wordbias_sum_gradients[word_b] += loss ** 2
- * 
-*/
-                            __pyx_t_9 = __pyx_v_word_b;
-                            *((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_wordbias.data) + __pyx_t_9)) )) -= (__pyx_v_learning_rate * __pyx_v_loss);
+                            __pyx_v_weighted_loss = (__pyx_v_entry_weight * __pyx_v_loss);
 
                             /* "glove/glove_cython.pyx":108
- *             learning_rate = initial_learning_rate / sqrt(wordbias_sum_gradients[word_b])
- *             wordbias[word_b] -= learning_rate * loss
- *             wordbias_sum_gradients[word_b] += loss ** 2             # <<<<<<<<<<<<<<
+ *             # Update step: apply gradients using AdaGrad
+ *             # Process word vectors with improved numerical stability
+ *             for i in range(dim):             # <<<<<<<<<<<<<<
+ *                 # Update word_a
+ *                 temp_b = wordvec[word_b, i]
+*/
+                            __pyx_t_7 = __pyx_v_dim;
+                            __pyx_t_8 = __pyx_t_7;
+                            for (__pyx_t_9 = 0; __pyx_t_9 < __pyx_t_8; __pyx_t_9+=1) {
+                              __pyx_v_i = __pyx_t_9;
+
+                              /* "glove/glove_cython.pyx":110
+ *             for i in range(dim):
+ *                 # Update word_a
+ *                 temp_b = wordvec[word_b, i]             # <<<<<<<<<<<<<<
+ *                 gradient = weighted_loss * temp_b
+ *                 gradient_sq = gradient * gradient
+*/
+                              __pyx_t_11 = __pyx_v_word_b;
+                              __pyx_t_10 = __pyx_v_i;
+                              __pyx_v_temp_b = (*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_wordvec.data + __pyx_t_11 * __pyx_v_wordvec.strides[0]) )) + __pyx_t_10)) )));
+
+                              /* "glove/glove_cython.pyx":111
+ *                 # Update word_a
+ *                 temp_b = wordvec[word_b, i]
+ *                 gradient = weighted_loss * temp_b             # <<<<<<<<<<<<<<
+ *                 gradient_sq = gradient * gradient
+ *                 learning_rate = initial_learning_rate / sqrt(wordvec_sum_gradients[word_a, i] + eps)
+*/
+                              __pyx_v_gradient = (__pyx_v_weighted_loss * __pyx_v_temp_b);
+
+                              /* "glove/glove_cython.pyx":112
+ *                 temp_b = wordvec[word_b, i]
+ *                 gradient = weighted_loss * temp_b
+ *                 gradient_sq = gradient * gradient             # <<<<<<<<<<<<<<
+ *                 learning_rate = initial_learning_rate / sqrt(wordvec_sum_gradients[word_a, i] + eps)
+ *                 wordvec[word_a, i] = wordvec[word_a, i] - learning_rate * gradient
+*/
+                              __pyx_v_gradient_sq = (__pyx_v_gradient * __pyx_v_gradient);
+
+                              /* "glove/glove_cython.pyx":113
+ *                 gradient = weighted_loss * temp_b
+ *                 gradient_sq = gradient * gradient
+ *                 learning_rate = initial_learning_rate / sqrt(wordvec_sum_gradients[word_a, i] + eps)             # <<<<<<<<<<<<<<
+ *                 wordvec[word_a, i] = wordvec[word_a, i] - learning_rate * gradient
+ *                 wordvec_sum_gradients[word_a, i] += gradient_sq
+*/
+                              __pyx_t_10 = __pyx_v_word_a;
+                              __pyx_t_11 = __pyx_v_i;
+                              __pyx_v_learning_rate = (__pyx_v_initial_learning_rate / sqrt(((*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_wordvec_sum_gradients.data + __pyx_t_10 * __pyx_v_wordvec_sum_gradients.strides[0]) )) + __pyx_t_11)) ))) + __pyx_v_eps)));
+
+                              /* "glove/glove_cython.pyx":114
+ *                 gradient_sq = gradient * gradient
+ *                 learning_rate = initial_learning_rate / sqrt(wordvec_sum_gradients[word_a, i] + eps)
+ *                 wordvec[word_a, i] = wordvec[word_a, i] - learning_rate * gradient             # <<<<<<<<<<<<<<
+ *                 wordvec_sum_gradients[word_a, i] += gradient_sq
+ * 
+*/
+                              __pyx_t_11 = __pyx_v_word_a;
+                              __pyx_t_10 = __pyx_v_i;
+                              __pyx_t_4 = __pyx_v_word_a;
+                              __pyx_t_6 = __pyx_v_i;
+                              *((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_wordvec.data + __pyx_t_4 * __pyx_v_wordvec.strides[0]) )) + __pyx_t_6)) )) = ((*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_wordvec.data + __pyx_t_11 * __pyx_v_wordvec.strides[0]) )) + __pyx_t_10)) ))) - (__pyx_v_learning_rate * __pyx_v_gradient));
+
+                              /* "glove/glove_cython.pyx":115
+ *                 learning_rate = initial_learning_rate / sqrt(wordvec_sum_gradients[word_a, i] + eps)
+ *                 wordvec[word_a, i] = wordvec[word_a, i] - learning_rate * gradient
+ *                 wordvec_sum_gradients[word_a, i] += gradient_sq             # <<<<<<<<<<<<<<
+ * 
+ *                 # Update word_b using updated word_a value
+*/
+                              __pyx_t_10 = __pyx_v_word_a;
+                              __pyx_t_11 = __pyx_v_i;
+                              *((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_wordvec_sum_gradients.data + __pyx_t_10 * __pyx_v_wordvec_sum_gradients.strides[0]) )) + __pyx_t_11)) )) += __pyx_v_gradient_sq;
+
+                              /* "glove/glove_cython.pyx":118
+ * 
+ *                 # Update word_b using updated word_a value
+ *                 temp_a = wordvec[word_a, i]             # <<<<<<<<<<<<<<
+ *                 gradient = weighted_loss * temp_a
+ *                 gradient_sq = gradient * gradient
+*/
+                              __pyx_t_11 = __pyx_v_word_a;
+                              __pyx_t_10 = __pyx_v_i;
+                              __pyx_v_temp_a = (*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_wordvec.data + __pyx_t_11 * __pyx_v_wordvec.strides[0]) )) + __pyx_t_10)) )));
+
+                              /* "glove/glove_cython.pyx":119
+ *                 # Update word_b using updated word_a value
+ *                 temp_a = wordvec[word_a, i]
+ *                 gradient = weighted_loss * temp_a             # <<<<<<<<<<<<<<
+ *                 gradient_sq = gradient * gradient
+ *                 learning_rate = initial_learning_rate / sqrt(wordvec_sum_gradients[word_b, i] + eps)
+*/
+                              __pyx_v_gradient = (__pyx_v_weighted_loss * __pyx_v_temp_a);
+
+                              /* "glove/glove_cython.pyx":120
+ *                 temp_a = wordvec[word_a, i]
+ *                 gradient = weighted_loss * temp_a
+ *                 gradient_sq = gradient * gradient             # <<<<<<<<<<<<<<
+ *                 learning_rate = initial_learning_rate / sqrt(wordvec_sum_gradients[word_b, i] + eps)
+ *                 wordvec[word_b, i] = wordvec[word_b, i] - learning_rate * gradient
+*/
+                              __pyx_v_gradient_sq = (__pyx_v_gradient * __pyx_v_gradient);
+
+                              /* "glove/glove_cython.pyx":121
+ *                 gradient = weighted_loss * temp_a
+ *                 gradient_sq = gradient * gradient
+ *                 learning_rate = initial_learning_rate / sqrt(wordvec_sum_gradients[word_b, i] + eps)             # <<<<<<<<<<<<<<
+ *                 wordvec[word_b, i] = wordvec[word_b, i] - learning_rate * gradient
+ *                 wordvec_sum_gradients[word_b, i] += gradient_sq
+*/
+                              __pyx_t_10 = __pyx_v_word_b;
+                              __pyx_t_11 = __pyx_v_i;
+                              __pyx_v_learning_rate = (__pyx_v_initial_learning_rate / sqrt(((*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_wordvec_sum_gradients.data + __pyx_t_10 * __pyx_v_wordvec_sum_gradients.strides[0]) )) + __pyx_t_11)) ))) + __pyx_v_eps)));
+
+                              /* "glove/glove_cython.pyx":122
+ *                 gradient_sq = gradient * gradient
+ *                 learning_rate = initial_learning_rate / sqrt(wordvec_sum_gradients[word_b, i] + eps)
+ *                 wordvec[word_b, i] = wordvec[word_b, i] - learning_rate * gradient             # <<<<<<<<<<<<<<
+ *                 wordvec_sum_gradients[word_b, i] += gradient_sq
+ * 
+*/
+                              __pyx_t_11 = __pyx_v_word_b;
+                              __pyx_t_10 = __pyx_v_i;
+                              __pyx_t_6 = __pyx_v_word_b;
+                              __pyx_t_4 = __pyx_v_i;
+                              *((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_wordvec.data + __pyx_t_6 * __pyx_v_wordvec.strides[0]) )) + __pyx_t_4)) )) = ((*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_wordvec.data + __pyx_t_11 * __pyx_v_wordvec.strides[0]) )) + __pyx_t_10)) ))) - (__pyx_v_learning_rate * __pyx_v_gradient));
+
+                              /* "glove/glove_cython.pyx":123
+ *                 learning_rate = initial_learning_rate / sqrt(wordvec_sum_gradients[word_b, i] + eps)
+ *                 wordvec[word_b, i] = wordvec[word_b, i] - learning_rate * gradient
+ *                 wordvec_sum_gradients[word_b, i] += gradient_sq             # <<<<<<<<<<<<<<
+ * 
+ *             # Update word biases with improved numerical stability
+*/
+                              __pyx_t_10 = __pyx_v_word_b;
+                              __pyx_t_11 = __pyx_v_i;
+                              *((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_wordvec_sum_gradients.data + __pyx_t_10 * __pyx_v_wordvec_sum_gradients.strides[0]) )) + __pyx_t_11)) )) += __pyx_v_gradient_sq;
+                            }
+
+                            /* "glove/glove_cython.pyx":126
+ * 
+ *             # Update word biases with improved numerical stability
+ *             learning_rate = initial_learning_rate / sqrt(wordbias_sum_gradients[word_a] + eps)             # <<<<<<<<<<<<<<
+ *             wordbias[word_a] -= learning_rate * weighted_loss
+ *             wordbias_sum_gradients[word_a] += weighted_loss * weighted_loss
+*/
+                            __pyx_t_11 = __pyx_v_word_a;
+                            __pyx_v_learning_rate = (__pyx_v_initial_learning_rate / sqrt(((*((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_wordbias_sum_gradients.data) + __pyx_t_11)) ))) + __pyx_v_eps)));
+
+                            /* "glove/glove_cython.pyx":127
+ *             # Update word biases with improved numerical stability
+ *             learning_rate = initial_learning_rate / sqrt(wordbias_sum_gradients[word_a] + eps)
+ *             wordbias[word_a] -= learning_rate * weighted_loss             # <<<<<<<<<<<<<<
+ *             wordbias_sum_gradients[word_a] += weighted_loss * weighted_loss
+ * 
+*/
+                            __pyx_t_11 = __pyx_v_word_a;
+                            *((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_wordbias.data) + __pyx_t_11)) )) -= (__pyx_v_learning_rate * __pyx_v_weighted_loss);
+
+                            /* "glove/glove_cython.pyx":128
+ *             learning_rate = initial_learning_rate / sqrt(wordbias_sum_gradients[word_a] + eps)
+ *             wordbias[word_a] -= learning_rate * weighted_loss
+ *             wordbias_sum_gradients[word_a] += weighted_loss * weighted_loss             # <<<<<<<<<<<<<<
+ * 
+ *             learning_rate = initial_learning_rate / sqrt(wordbias_sum_gradients[word_b] + eps)
+*/
+                            __pyx_t_11 = __pyx_v_word_a;
+                            *((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_wordbias_sum_gradients.data) + __pyx_t_11)) )) += (__pyx_v_weighted_loss * __pyx_v_weighted_loss);
+
+                            /* "glove/glove_cython.pyx":130
+ *             wordbias_sum_gradients[word_a] += weighted_loss * weighted_loss
+ * 
+ *             learning_rate = initial_learning_rate / sqrt(wordbias_sum_gradients[word_b] + eps)             # <<<<<<<<<<<<<<
+ *             wordbias[word_b] -= learning_rate * weighted_loss
+ *             wordbias_sum_gradients[word_b] += weighted_loss * weighted_loss
+*/
+                            __pyx_t_11 = __pyx_v_word_b;
+                            __pyx_v_learning_rate = (__pyx_v_initial_learning_rate / sqrt(((*((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_wordbias_sum_gradients.data) + __pyx_t_11)) ))) + __pyx_v_eps)));
+
+                            /* "glove/glove_cython.pyx":131
+ * 
+ *             learning_rate = initial_learning_rate / sqrt(wordbias_sum_gradients[word_b] + eps)
+ *             wordbias[word_b] -= learning_rate * weighted_loss             # <<<<<<<<<<<<<<
+ *             wordbias_sum_gradients[word_b] += weighted_loss * weighted_loss
+ * 
+*/
+                            __pyx_t_11 = __pyx_v_word_b;
+                            *((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_wordbias.data) + __pyx_t_11)) )) -= (__pyx_v_learning_rate * __pyx_v_weighted_loss);
+
+                            /* "glove/glove_cython.pyx":132
+ *             learning_rate = initial_learning_rate / sqrt(wordbias_sum_gradients[word_b] + eps)
+ *             wordbias[word_b] -= learning_rate * weighted_loss
+ *             wordbias_sum_gradients[word_b] += weighted_loss * weighted_loss             # <<<<<<<<<<<<<<
  * 
  * 
 */
-                            __pyx_t_9 = __pyx_v_word_b;
-                            *((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_wordbias_sum_gradients.data) + __pyx_t_9)) )) += pow(__pyx_v_loss, 2.0);
-                            goto __pyx_L16;
-                            __pyx_L8_error:;
-                            {
-                                PyGILState_STATE __pyx_gilstate_save = __Pyx_PyGILState_Ensure();
-                                #if CYTHON_COMPILING_IN_CPYTHON_FREETHREADING
-                                PyMutex_Lock(&__pyx_parallel_freethreading_mutex);
-                                #endif
-                                #ifdef _OPENMP
-                                #pragma omp flush(__pyx_parallel_exc_type)
-                                #endif /* _OPENMP */
-                                if (!__pyx_parallel_exc_type) {
-                                  __Pyx_ErrFetchWithState(&__pyx_parallel_exc_type, &__pyx_parallel_exc_value, &__pyx_parallel_exc_tb);
-                                  __pyx_parallel_filename = __pyx_filename; __pyx_parallel_lineno = __pyx_lineno; __pyx_parallel_clineno = __pyx_clineno;
-                                  __Pyx_GOTREF(__pyx_parallel_exc_type);
-                                }
-                                #if CYTHON_COMPILING_IN_CPYTHON_FREETHREADING
-                                PyMutex_Unlock(&__pyx_parallel_freethreading_mutex);
-                                #endif
-                                __Pyx_PyGILState_Release(__pyx_gilstate_save);
-                            }
-                            __pyx_parallel_why = 4;
-                            goto __pyx_L16;
-                            __pyx_L16:;
-                            #ifdef _OPENMP
-                            #pragma omp flush(__pyx_parallel_why)
-                            #endif /* _OPENMP */
+                            __pyx_t_11 = __pyx_v_word_b;
+                            *((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_wordbias_sum_gradients.data) + __pyx_t_11)) )) += (__pyx_v_weighted_loss * __pyx_v_weighted_loss);
+                            goto __pyx_L18;
+                            __pyx_L6_continue:;
+                            goto __pyx_L18;
+                            __pyx_L18:;
                         }
                     }
-                    #ifdef _OPENMP
-                    Py_END_ALLOW_THREADS
-                    #else
-{
-PyGILState_STATE __pyx_gilstate_save = __Pyx_PyGILState_Ensure();
-                    #endif /* _OPENMP */
-                    /* Clean up any temporaries */
-                    __Pyx_PyGILState_Release(__pyx_gilstate_save);
-                    #ifndef _OPENMP
-}
-#endif /* _OPENMP */
                 }
-            }
-            if (__pyx_parallel_exc_type) {
-              /* This may have been overridden by a continue, break or return in another thread. Prefer the error. */
-              __pyx_parallel_why = 4;
-            }
-            if (__pyx_parallel_why) {
-              switch (__pyx_parallel_why) {
-                    case 4:
-                {
-                    PyGILState_STATE __pyx_gilstate_save = __Pyx_PyGILState_Ensure();
-                    #if CYTHON_COMPILING_IN_CPYTHON_FREETHREADING
-                    PyMutex_Lock(&__pyx_parallel_freethreading_mutex);
-                    #endif
-                    __Pyx_GIVEREF(__pyx_parallel_exc_type);
-                    __Pyx_ErrRestoreWithState(__pyx_parallel_exc_type, __pyx_parallel_exc_value, __pyx_parallel_exc_tb);
-                    __pyx_filename = __pyx_parallel_filename; __pyx_lineno = __pyx_parallel_lineno; __pyx_clineno = __pyx_parallel_clineno;
-                    #if CYTHON_COMPILING_IN_CPYTHON_FREETHREADING
-                    PyMutex_Unlock(&__pyx_parallel_freethreading_mutex);
-                    #endif
-                    __Pyx_PyGILState_Release(__pyx_gilstate_save);
-                }
-                goto __pyx_L4_error;
-              }
             }
         }
         #if ((defined(__APPLE__) || defined(__OSX__)) && (defined(__GNUC__) && (__GNUC__ > 2 || (__GNUC__ == 2 && (__GNUC_MINOR__ > 95)))))
@@ -17458,7 +17522,7 @@ PyGILState_STATE __pyx_gilstate_save = __Pyx_PyGILState_Ensure();
         #endif
       }
 
-      /* "glove/glove_cython.pyx":59
+      /* "glove/glove_cython.pyx":67
  *     # We iterate over random indices to simulate
  *     # shuffling the cooccurrence matrix.
  *     with nogil:             # <<<<<<<<<<<<<<
@@ -17471,16 +17535,11 @@ PyGILState_STATE __pyx_gilstate_save = __Pyx_PyGILState_Ensure();
           PyEval_RestoreThread(_save);
           goto __pyx_L5;
         }
-        __pyx_L4_error: {
-          __Pyx_FastGIL_Forget();
-          PyEval_RestoreThread(_save);
-          goto __pyx_L1_error;
-        }
         __pyx_L5:;
       }
   }
 
-  /* "glove/glove_cython.pyx":20
+  /* "glove/glove_cython.pyx":23
  * 
  * 
  * def fit_vectors(double[:, ::1] wordvec,             # <<<<<<<<<<<<<<
@@ -17490,17 +17549,12 @@ PyGILState_STATE __pyx_gilstate_save = __Pyx_PyGILState_Ensure();
 
   /* function exit code */
   __pyx_r = Py_None; __Pyx_INCREF(Py_None);
-  goto __pyx_L0;
-  __pyx_L1_error:;
-  __Pyx_AddTraceback("glove.glove_cython.fit_vectors", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __pyx_r = NULL;
-  __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-/* "glove/glove_cython.pyx":111
+/* "glove/glove_cython.pyx":135
  * 
  * 
  * def transform_paragraph(double[:, ::1] wordvec,             # <<<<<<<<<<<<<<
@@ -17558,102 +17612,102 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_wordvec,&__pyx_mstate_global->__pyx_n_u_wordbias,&__pyx_mstate_global->__pyx_n_u_paragraphvec,&__pyx_mstate_global->__pyx_n_u_sum_gradients,&__pyx_mstate_global->__pyx_n_u_row,&__pyx_mstate_global->__pyx_n_u_counts,&__pyx_mstate_global->__pyx_n_u_shuffle_indices,&__pyx_mstate_global->__pyx_n_u_initial_learning_rate,&__pyx_mstate_global->__pyx_n_u_max_count,&__pyx_mstate_global->__pyx_n_u_alpha,&__pyx_mstate_global->__pyx_n_u_epochs,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 111, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 135, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case 11:
         values[10] = __Pyx_ArgRef_FASTCALL(__pyx_args, 10);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[10])) __PYX_ERR(0, 111, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[10])) __PYX_ERR(0, 135, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case 10:
         values[9] = __Pyx_ArgRef_FASTCALL(__pyx_args, 9);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[9])) __PYX_ERR(0, 111, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[9])) __PYX_ERR(0, 135, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  9:
         values[8] = __Pyx_ArgRef_FASTCALL(__pyx_args, 8);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[8])) __PYX_ERR(0, 111, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[8])) __PYX_ERR(0, 135, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  8:
         values[7] = __Pyx_ArgRef_FASTCALL(__pyx_args, 7);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[7])) __PYX_ERR(0, 111, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[7])) __PYX_ERR(0, 135, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  7:
         values[6] = __Pyx_ArgRef_FASTCALL(__pyx_args, 6);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[6])) __PYX_ERR(0, 111, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[6])) __PYX_ERR(0, 135, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  6:
         values[5] = __Pyx_ArgRef_FASTCALL(__pyx_args, 5);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[5])) __PYX_ERR(0, 111, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[5])) __PYX_ERR(0, 135, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  5:
         values[4] = __Pyx_ArgRef_FASTCALL(__pyx_args, 4);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[4])) __PYX_ERR(0, 111, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[4])) __PYX_ERR(0, 135, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  4:
         values[3] = __Pyx_ArgRef_FASTCALL(__pyx_args, 3);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 111, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 135, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  3:
         values[2] = __Pyx_ArgRef_FASTCALL(__pyx_args, 2);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 111, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 135, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  2:
         values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 111, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 135, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 111, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 135, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "transform_paragraph", 0) < (0)) __PYX_ERR(0, 111, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "transform_paragraph", 0) < (0)) __PYX_ERR(0, 135, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 11; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("transform_paragraph", 1, 11, 11, i); __PYX_ERR(0, 111, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("transform_paragraph", 1, 11, 11, i); __PYX_ERR(0, 135, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 11)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 111, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 135, __pyx_L3_error)
       values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 111, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 135, __pyx_L3_error)
       values[2] = __Pyx_ArgRef_FASTCALL(__pyx_args, 2);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 111, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 135, __pyx_L3_error)
       values[3] = __Pyx_ArgRef_FASTCALL(__pyx_args, 3);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 111, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 135, __pyx_L3_error)
       values[4] = __Pyx_ArgRef_FASTCALL(__pyx_args, 4);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[4])) __PYX_ERR(0, 111, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[4])) __PYX_ERR(0, 135, __pyx_L3_error)
       values[5] = __Pyx_ArgRef_FASTCALL(__pyx_args, 5);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[5])) __PYX_ERR(0, 111, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[5])) __PYX_ERR(0, 135, __pyx_L3_error)
       values[6] = __Pyx_ArgRef_FASTCALL(__pyx_args, 6);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[6])) __PYX_ERR(0, 111, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[6])) __PYX_ERR(0, 135, __pyx_L3_error)
       values[7] = __Pyx_ArgRef_FASTCALL(__pyx_args, 7);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[7])) __PYX_ERR(0, 111, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[7])) __PYX_ERR(0, 135, __pyx_L3_error)
       values[8] = __Pyx_ArgRef_FASTCALL(__pyx_args, 8);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[8])) __PYX_ERR(0, 111, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[8])) __PYX_ERR(0, 135, __pyx_L3_error)
       values[9] = __Pyx_ArgRef_FASTCALL(__pyx_args, 9);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[9])) __PYX_ERR(0, 111, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[9])) __PYX_ERR(0, 135, __pyx_L3_error)
       values[10] = __Pyx_ArgRef_FASTCALL(__pyx_args, 10);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[10])) __PYX_ERR(0, 111, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[10])) __PYX_ERR(0, 135, __pyx_L3_error)
     }
-    __pyx_v_wordvec = __Pyx_PyObject_to_MemoryviewSlice_d_dc_double(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_wordvec.memview)) __PYX_ERR(0, 111, __pyx_L3_error)
-    __pyx_v_wordbias = __Pyx_PyObject_to_MemoryviewSlice_dc_double(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_wordbias.memview)) __PYX_ERR(0, 112, __pyx_L3_error)
-    __pyx_v_paragraphvec = __Pyx_PyObject_to_MemoryviewSlice_dc_double(values[2], PyBUF_WRITABLE); if (unlikely(!__pyx_v_paragraphvec.memview)) __PYX_ERR(0, 113, __pyx_L3_error)
-    __pyx_v_sum_gradients = __Pyx_PyObject_to_MemoryviewSlice_dc_double(values[3], PyBUF_WRITABLE); if (unlikely(!__pyx_v_sum_gradients.memview)) __PYX_ERR(0, 114, __pyx_L3_error)
-    __pyx_v_row = __Pyx_PyObject_to_MemoryviewSlice_dc_int(values[4], PyBUF_WRITABLE); if (unlikely(!__pyx_v_row.memview)) __PYX_ERR(0, 115, __pyx_L3_error)
-    __pyx_v_counts = __Pyx_PyObject_to_MemoryviewSlice_dc_double(values[5], PyBUF_WRITABLE); if (unlikely(!__pyx_v_counts.memview)) __PYX_ERR(0, 116, __pyx_L3_error)
-    __pyx_v_shuffle_indices = __Pyx_PyObject_to_MemoryviewSlice_dc_int(values[6], PyBUF_WRITABLE); if (unlikely(!__pyx_v_shuffle_indices.memview)) __PYX_ERR(0, 117, __pyx_L3_error)
-    __pyx_v_initial_learning_rate = __Pyx_PyFloat_AsDouble(values[7]); if (unlikely((__pyx_v_initial_learning_rate == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 118, __pyx_L3_error)
-    __pyx_v_max_count = __Pyx_PyFloat_AsDouble(values[8]); if (unlikely((__pyx_v_max_count == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 119, __pyx_L3_error)
-    __pyx_v_alpha = __Pyx_PyFloat_AsDouble(values[9]); if (unlikely((__pyx_v_alpha == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 120, __pyx_L3_error)
-    __pyx_v_epochs = __Pyx_PyLong_As_int(values[10]); if (unlikely((__pyx_v_epochs == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 121, __pyx_L3_error)
+    __pyx_v_wordvec = __Pyx_PyObject_to_MemoryviewSlice_d_dc_double(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_wordvec.memview)) __PYX_ERR(0, 135, __pyx_L3_error)
+    __pyx_v_wordbias = __Pyx_PyObject_to_MemoryviewSlice_dc_double(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_wordbias.memview)) __PYX_ERR(0, 136, __pyx_L3_error)
+    __pyx_v_paragraphvec = __Pyx_PyObject_to_MemoryviewSlice_dc_double(values[2], PyBUF_WRITABLE); if (unlikely(!__pyx_v_paragraphvec.memview)) __PYX_ERR(0, 137, __pyx_L3_error)
+    __pyx_v_sum_gradients = __Pyx_PyObject_to_MemoryviewSlice_dc_double(values[3], PyBUF_WRITABLE); if (unlikely(!__pyx_v_sum_gradients.memview)) __PYX_ERR(0, 138, __pyx_L3_error)
+    __pyx_v_row = __Pyx_PyObject_to_MemoryviewSlice_dc_int(values[4], PyBUF_WRITABLE); if (unlikely(!__pyx_v_row.memview)) __PYX_ERR(0, 139, __pyx_L3_error)
+    __pyx_v_counts = __Pyx_PyObject_to_MemoryviewSlice_dc_double(values[5], PyBUF_WRITABLE); if (unlikely(!__pyx_v_counts.memview)) __PYX_ERR(0, 140, __pyx_L3_error)
+    __pyx_v_shuffle_indices = __Pyx_PyObject_to_MemoryviewSlice_dc_int(values[6], PyBUF_WRITABLE); if (unlikely(!__pyx_v_shuffle_indices.memview)) __PYX_ERR(0, 141, __pyx_L3_error)
+    __pyx_v_initial_learning_rate = __Pyx_PyFloat_AsDouble(values[7]); if (unlikely((__pyx_v_initial_learning_rate == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 142, __pyx_L3_error)
+    __pyx_v_max_count = __Pyx_PyFloat_AsDouble(values[8]); if (unlikely((__pyx_v_max_count == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 143, __pyx_L3_error)
+    __pyx_v_alpha = __Pyx_PyFloat_AsDouble(values[9]); if (unlikely((__pyx_v_alpha == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 144, __pyx_L3_error)
+    __pyx_v_epochs = __Pyx_PyLong_As_int(values[10]); if (unlikely((__pyx_v_epochs == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 145, __pyx_L3_error)
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("transform_paragraph", 1, 11, 11, __pyx_nargs); __PYX_ERR(0, 111, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("transform_paragraph", 1, 11, 11, __pyx_nargs); __PYX_ERR(0, 135, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -17693,15 +17747,18 @@ static PyObject *__pyx_pf_5glove_12glove_cython_2transform_paragraph(CYTHON_UNUS
   int __pyx_v_no_cooccurrences;
   int __pyx_v_word_b;
   double __pyx_v_count;
+  double __pyx_v_log_count;
+  double __pyx_v_ratio;
   double __pyx_v_prediction;
   double __pyx_v_entry_weight;
   double __pyx_v_loss;
   double __pyx_v_gradient;
+  double __pyx_v_learning_rate;
+  CYTHON_UNUSED double __pyx_v_eps;
   CYTHON_UNUSED int __pyx_v_epoch;
   int __pyx_v_i;
   int __pyx_v_j;
   int __pyx_v_shuffle_index;
-  double __pyx_v_learning_rate;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
@@ -17714,15 +17771,12 @@ static PyObject *__pyx_pf_5glove_12glove_cython_2transform_paragraph(CYTHON_UNUS
   int __pyx_t_8;
   int __pyx_t_9;
   int __pyx_t_10;
-  Py_ssize_t __pyx_t_11;
+  int __pyx_t_11;
   Py_ssize_t __pyx_t_12;
-  double __pyx_t_13;
-  int __pyx_lineno = 0;
-  const char *__pyx_filename = NULL;
-  int __pyx_clineno = 0;
+  Py_ssize_t __pyx_t_13;
   __Pyx_RefNannySetupContext("transform_paragraph", 0);
 
-  /* "glove/glove_cython.pyx":135
+  /* "glove/glove_cython.pyx":159
  *     # Get number of latent dimensions and
  *     # number of cooccurrences.
  *     cdef int dim = wordvec.shape[1]             # <<<<<<<<<<<<<<
@@ -17731,7 +17785,7 @@ static PyObject *__pyx_pf_5glove_12glove_cython_2transform_paragraph(CYTHON_UNUS
 */
   __pyx_v_dim = (__pyx_v_wordvec.shape[1]);
 
-  /* "glove/glove_cython.pyx":136
+  /* "glove/glove_cython.pyx":160
  *     # number of cooccurrences.
  *     cdef int dim = wordvec.shape[1]
  *     cdef int no_cooccurrences = row.shape[0]             # <<<<<<<<<<<<<<
@@ -17740,7 +17794,16 @@ static PyObject *__pyx_pf_5glove_12glove_cython_2transform_paragraph(CYTHON_UNUS
 */
   __pyx_v_no_cooccurrences = (__pyx_v_row.shape[0]);
 
-  /* "glove/glove_cython.pyx":154
+  /* "glove/glove_cython.pyx":174
+ *     cdef double gradient
+ *     cdef double learning_rate
+ *     cdef double eps = 1e-8  # Small constant for numerical stability             # <<<<<<<<<<<<<<
+ * 
+ *     # Iteration variables
+*/
+  __pyx_v_eps = 1e-8;
+
+  /* "glove/glove_cython.pyx":181
  *     # We iterate over random indices to simulate
  *     # shuffling the cooccurrence matrix.
  *     for epoch in range(epochs):             # <<<<<<<<<<<<<<
@@ -17752,7 +17815,7 @@ static PyObject *__pyx_pf_5glove_12glove_cython_2transform_paragraph(CYTHON_UNUS
   for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
     __pyx_v_epoch = __pyx_t_3;
 
-    /* "glove/glove_cython.pyx":155
+    /* "glove/glove_cython.pyx":182
  *     # shuffling the cooccurrence matrix.
  *     for epoch in range(epochs):
  *         for j in range(no_cooccurrences):             # <<<<<<<<<<<<<<
@@ -17764,7 +17827,7 @@ static PyObject *__pyx_pf_5glove_12glove_cython_2transform_paragraph(CYTHON_UNUS
     for (__pyx_t_6 = 0; __pyx_t_6 < __pyx_t_5; __pyx_t_6+=1) {
       __pyx_v_j = __pyx_t_6;
 
-      /* "glove/glove_cython.pyx":156
+      /* "glove/glove_cython.pyx":183
  *     for epoch in range(epochs):
  *         for j in range(no_cooccurrences):
  *             shuffle_index = shuffle_indices[j]             # <<<<<<<<<<<<<<
@@ -17774,7 +17837,7 @@ static PyObject *__pyx_pf_5glove_12glove_cython_2transform_paragraph(CYTHON_UNUS
       __pyx_t_7 = __pyx_v_j;
       __pyx_v_shuffle_index = (*((int *) ( /* dim=0 */ ((char *) (((int *) __pyx_v_shuffle_indices.data) + __pyx_t_7)) )));
 
-      /* "glove/glove_cython.pyx":158
+      /* "glove/glove_cython.pyx":185
  *             shuffle_index = shuffle_indices[j]
  * 
  *             word_b = row[shuffle_index]             # <<<<<<<<<<<<<<
@@ -17784,142 +17847,203 @@ static PyObject *__pyx_pf_5glove_12glove_cython_2transform_paragraph(CYTHON_UNUS
       __pyx_t_7 = __pyx_v_shuffle_index;
       __pyx_v_word_b = (*((int *) ( /* dim=0 */ ((char *) (((int *) __pyx_v_row.data) + __pyx_t_7)) )));
 
-      /* "glove/glove_cython.pyx":159
+      /* "glove/glove_cython.pyx":186
  * 
  *             word_b = row[shuffle_index]
  *             count = counts[shuffle_index]             # <<<<<<<<<<<<<<
  * 
- *             # Get prediction
+ *             # Skip invalid entries
 */
       __pyx_t_7 = __pyx_v_shuffle_index;
       __pyx_v_count = (*((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_counts.data) + __pyx_t_7)) )));
 
-      /* "glove/glove_cython.pyx":162
+      /* "glove/glove_cython.pyx":189
+ * 
+ *             # Skip invalid entries
+ *             if count <= 0.0:             # <<<<<<<<<<<<<<
+ *                 continue
+ * 
+*/
+      __pyx_t_8 = (__pyx_v_count <= 0.0);
+      if (__pyx_t_8) {
+
+        /* "glove/glove_cython.pyx":190
+ *             # Skip invalid entries
+ *             if count <= 0.0:
+ *                 continue             # <<<<<<<<<<<<<<
+ * 
+ *             log_count = c_log(count)
+*/
+        goto __pyx_L5_continue;
+
+        /* "glove/glove_cython.pyx":189
+ * 
+ *             # Skip invalid entries
+ *             if count <= 0.0:             # <<<<<<<<<<<<<<
+ *                 continue
+ * 
+*/
+      }
+
+      /* "glove/glove_cython.pyx":192
+ *                 continue
+ * 
+ *             log_count = c_log(count)             # <<<<<<<<<<<<<<
  * 
  *             # Get prediction
- *             prediction = 0.0             # <<<<<<<<<<<<<<
+*/
+      __pyx_v_log_count = log(__pyx_v_count);
+
+      /* "glove/glove_cython.pyx":195
+ * 
+ *             # Get prediction
+ *             prediction = wordbias[word_b]             # <<<<<<<<<<<<<<
  *             for i in range(dim):
  *                 prediction = prediction + paragraphvec[i] * wordvec[word_b, i]
 */
-      __pyx_v_prediction = 0.0;
+      __pyx_t_7 = __pyx_v_word_b;
+      __pyx_v_prediction = (*((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_wordbias.data) + __pyx_t_7)) )));
 
-      /* "glove/glove_cython.pyx":163
+      /* "glove/glove_cython.pyx":196
  *             # Get prediction
- *             prediction = 0.0
+ *             prediction = wordbias[word_b]
  *             for i in range(dim):             # <<<<<<<<<<<<<<
  *                 prediction = prediction + paragraphvec[i] * wordvec[word_b, i]
- *             prediction += wordbias[word_b]
+ * 
 */
-      __pyx_t_8 = __pyx_v_dim;
-      __pyx_t_9 = __pyx_t_8;
-      for (__pyx_t_10 = 0; __pyx_t_10 < __pyx_t_9; __pyx_t_10+=1) {
-        __pyx_v_i = __pyx_t_10;
+      __pyx_t_9 = __pyx_v_dim;
+      __pyx_t_10 = __pyx_t_9;
+      for (__pyx_t_11 = 0; __pyx_t_11 < __pyx_t_10; __pyx_t_11+=1) {
+        __pyx_v_i = __pyx_t_11;
 
-        /* "glove/glove_cython.pyx":164
- *             prediction = 0.0
+        /* "glove/glove_cython.pyx":197
+ *             prediction = wordbias[word_b]
  *             for i in range(dim):
  *                 prediction = prediction + paragraphvec[i] * wordvec[word_b, i]             # <<<<<<<<<<<<<<
- *             prediction += wordbias[word_b]
  * 
+ *             # Compute loss and the example weight with improved stability.
 */
         __pyx_t_7 = __pyx_v_i;
-        __pyx_t_11 = __pyx_v_word_b;
-        __pyx_t_12 = __pyx_v_i;
-        __pyx_v_prediction = (__pyx_v_prediction + ((*((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_paragraphvec.data) + __pyx_t_7)) ))) * (*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_wordvec.data + __pyx_t_11 * __pyx_v_wordvec.strides[0]) )) + __pyx_t_12)) )))));
-      }
-
-      /* "glove/glove_cython.pyx":165
- *             for i in range(dim):
- *                 prediction = prediction + paragraphvec[i] * wordvec[word_b, i]
- *             prediction += wordbias[word_b]             # <<<<<<<<<<<<<<
- * 
- *             # Compute loss and the example weight.
-*/
-      __pyx_t_12 = __pyx_v_word_b;
-      __pyx_v_prediction = (__pyx_v_prediction + (*((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_wordbias.data) + __pyx_t_12)) ))));
-
-      /* "glove/glove_cython.pyx":168
- * 
- *             # Compute loss and the example weight.
- *             entry_weight = double_min(1.0, (count / max_count)) ** alpha             # <<<<<<<<<<<<<<
- *             loss = entry_weight * (prediction - c_log(count))
- * 
-*/
-      __pyx_t_13 = __pyx_f_5glove_12glove_cython_double_min(1.0, (__pyx_v_count / __pyx_v_max_count)); if (unlikely(__pyx_t_13 == ((double)-1) && PyErr_Occurred())) __PYX_ERR(0, 168, __pyx_L1_error)
-      __pyx_v_entry_weight = pow(__pyx_t_13, __pyx_v_alpha);
-
-      /* "glove/glove_cython.pyx":169
- *             # Compute loss and the example weight.
- *             entry_weight = double_min(1.0, (count / max_count)) ** alpha
- *             loss = entry_weight * (prediction - c_log(count))             # <<<<<<<<<<<<<<
- * 
- *             # Update step: apply gradients.
-*/
-      __pyx_v_loss = (__pyx_v_entry_weight * (__pyx_v_prediction - log(__pyx_v_count)));
-
-      /* "glove/glove_cython.pyx":172
- * 
- *             # Update step: apply gradients.
- *             for i in range(dim):             # <<<<<<<<<<<<<<
- *                 learning_rate = initial_learning_rate / sqrt(sum_gradients[i])
- *                 gradient = loss * wordvec[word_b, i]
-*/
-      __pyx_t_8 = __pyx_v_dim;
-      __pyx_t_9 = __pyx_t_8;
-      for (__pyx_t_10 = 0; __pyx_t_10 < __pyx_t_9; __pyx_t_10+=1) {
-        __pyx_v_i = __pyx_t_10;
-
-        /* "glove/glove_cython.pyx":173
- *             # Update step: apply gradients.
- *             for i in range(dim):
- *                 learning_rate = initial_learning_rate / sqrt(sum_gradients[i])             # <<<<<<<<<<<<<<
- *                 gradient = loss * wordvec[word_b, i]
- *                 paragraphvec[i] = (paragraphvec[i] - learning_rate
-*/
-        __pyx_t_12 = __pyx_v_i;
-        __pyx_v_learning_rate = (__pyx_v_initial_learning_rate / sqrt((*((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_sum_gradients.data) + __pyx_t_12)) )))));
-
-        /* "glove/glove_cython.pyx":174
- *             for i in range(dim):
- *                 learning_rate = initial_learning_rate / sqrt(sum_gradients[i])
- *                 gradient = loss * wordvec[word_b, i]             # <<<<<<<<<<<<<<
- *                 paragraphvec[i] = (paragraphvec[i] - learning_rate
- *                                    * gradient)
-*/
         __pyx_t_12 = __pyx_v_word_b;
-        __pyx_t_11 = __pyx_v_i;
-        __pyx_v_gradient = (__pyx_v_loss * (*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_wordvec.data + __pyx_t_12 * __pyx_v_wordvec.strides[0]) )) + __pyx_t_11)) ))));
+        __pyx_t_13 = __pyx_v_i;
+        __pyx_v_prediction = (__pyx_v_prediction + ((*((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_paragraphvec.data) + __pyx_t_7)) ))) * (*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_wordvec.data + __pyx_t_12 * __pyx_v_wordvec.strides[0]) )) + __pyx_t_13)) )))));
+      }
 
-        /* "glove/glove_cython.pyx":175
- *                 learning_rate = initial_learning_rate / sqrt(sum_gradients[i])
- *                 gradient = loss * wordvec[word_b, i]
- *                 paragraphvec[i] = (paragraphvec[i] - learning_rate             # <<<<<<<<<<<<<<
- *                                    * gradient)
- *                 sum_gradients[i] += gradient ** 2
+      /* "glove/glove_cython.pyx":200
+ * 
+ *             # Compute loss and the example weight with improved stability.
+ *             ratio = count / max_count             # <<<<<<<<<<<<<<
+ *             if ratio > 1.0:
+ *                 entry_weight = 1.0
 */
-        __pyx_t_11 = __pyx_v_i;
+      __pyx_v_ratio = (__pyx_v_count / __pyx_v_max_count);
 
-        /* "glove/glove_cython.pyx":176
+      /* "glove/glove_cython.pyx":201
+ *             # Compute loss and the example weight with improved stability.
+ *             ratio = count / max_count
+ *             if ratio > 1.0:             # <<<<<<<<<<<<<<
+ *                 entry_weight = 1.0
+ *             else:
+*/
+      __pyx_t_8 = (__pyx_v_ratio > 1.0);
+      if (__pyx_t_8) {
+
+        /* "glove/glove_cython.pyx":202
+ *             ratio = count / max_count
+ *             if ratio > 1.0:
+ *                 entry_weight = 1.0             # <<<<<<<<<<<<<<
+ *             else:
+ *                 entry_weight = ratio ** alpha
+*/
+        __pyx_v_entry_weight = 1.0;
+
+        /* "glove/glove_cython.pyx":201
+ *             # Compute loss and the example weight with improved stability.
+ *             ratio = count / max_count
+ *             if ratio > 1.0:             # <<<<<<<<<<<<<<
+ *                 entry_weight = 1.0
+ *             else:
+*/
+        goto __pyx_L10;
+      }
+
+      /* "glove/glove_cython.pyx":204
+ *                 entry_weight = 1.0
+ *             else:
+ *                 entry_weight = ratio ** alpha             # <<<<<<<<<<<<<<
+ * 
+ *             loss = entry_weight * (prediction - log_count)
+*/
+      /*else*/ {
+        __pyx_v_entry_weight = pow(__pyx_v_ratio, __pyx_v_alpha);
+      }
+      __pyx_L10:;
+
+      /* "glove/glove_cython.pyx":206
+ *                 entry_weight = ratio ** alpha
+ * 
+ *             loss = entry_weight * (prediction - log_count)             # <<<<<<<<<<<<<<
+ * 
+ *             # Update step: apply gradients with improved numerical stability.
+*/
+      __pyx_v_loss = (__pyx_v_entry_weight * (__pyx_v_prediction - __pyx_v_log_count));
+
+      /* "glove/glove_cython.pyx":209
+ * 
+ *             # Update step: apply gradients with improved numerical stability.
+ *             for i in range(dim):             # <<<<<<<<<<<<<<
+ *                 learning_rate = initial_learning_rate / sqrt(sum_gradients[i] + 1e-8)
  *                 gradient = loss * wordvec[word_b, i]
- *                 paragraphvec[i] = (paragraphvec[i] - learning_rate
- *                                    * gradient)             # <<<<<<<<<<<<<<
- *                 sum_gradients[i] += gradient ** 2
+*/
+      __pyx_t_9 = __pyx_v_dim;
+      __pyx_t_10 = __pyx_t_9;
+      for (__pyx_t_11 = 0; __pyx_t_11 < __pyx_t_10; __pyx_t_11+=1) {
+        __pyx_v_i = __pyx_t_11;
+
+        /* "glove/glove_cython.pyx":210
+ *             # Update step: apply gradients with improved numerical stability.
+ *             for i in range(dim):
+ *                 learning_rate = initial_learning_rate / sqrt(sum_gradients[i] + 1e-8)             # <<<<<<<<<<<<<<
+ *                 gradient = loss * wordvec[word_b, i]
+ *                 paragraphvec[i] = paragraphvec[i] - learning_rate * gradient
+*/
+        __pyx_t_13 = __pyx_v_i;
+        __pyx_v_learning_rate = (__pyx_v_initial_learning_rate / sqrt(((*((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_sum_gradients.data) + __pyx_t_13)) ))) + 1e-8)));
+
+        /* "glove/glove_cython.pyx":211
+ *             for i in range(dim):
+ *                 learning_rate = initial_learning_rate / sqrt(sum_gradients[i] + 1e-8)
+ *                 gradient = loss * wordvec[word_b, i]             # <<<<<<<<<<<<<<
+ *                 paragraphvec[i] = paragraphvec[i] - learning_rate * gradient
+ *                 sum_gradients[i] += gradient * gradient
+*/
+        __pyx_t_13 = __pyx_v_word_b;
+        __pyx_t_12 = __pyx_v_i;
+        __pyx_v_gradient = (__pyx_v_loss * (*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_wordvec.data + __pyx_t_13 * __pyx_v_wordvec.strides[0]) )) + __pyx_t_12)) ))));
+
+        /* "glove/glove_cython.pyx":212
+ *                 learning_rate = initial_learning_rate / sqrt(sum_gradients[i] + 1e-8)
+ *                 gradient = loss * wordvec[word_b, i]
+ *                 paragraphvec[i] = paragraphvec[i] - learning_rate * gradient             # <<<<<<<<<<<<<<
+ *                 sum_gradients[i] += gradient * gradient
 */
         __pyx_t_12 = __pyx_v_i;
-        *((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_paragraphvec.data) + __pyx_t_12)) )) = ((*((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_paragraphvec.data) + __pyx_t_11)) ))) - (__pyx_v_learning_rate * __pyx_v_gradient));
+        __pyx_t_13 = __pyx_v_i;
+        *((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_paragraphvec.data) + __pyx_t_13)) )) = ((*((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_paragraphvec.data) + __pyx_t_12)) ))) - (__pyx_v_learning_rate * __pyx_v_gradient));
 
-        /* "glove/glove_cython.pyx":177
- *                 paragraphvec[i] = (paragraphvec[i] - learning_rate
- *                                    * gradient)
- *                 sum_gradients[i] += gradient ** 2             # <<<<<<<<<<<<<<
+        /* "glove/glove_cython.pyx":213
+ *                 gradient = loss * wordvec[word_b, i]
+ *                 paragraphvec[i] = paragraphvec[i] - learning_rate * gradient
+ *                 sum_gradients[i] += gradient * gradient             # <<<<<<<<<<<<<<
 */
-        __pyx_t_11 = __pyx_v_i;
-        *((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_sum_gradients.data) + __pyx_t_11)) )) += pow(__pyx_v_gradient, 2.0);
+        __pyx_t_12 = __pyx_v_i;
+        *((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_sum_gradients.data) + __pyx_t_12)) )) += (__pyx_v_gradient * __pyx_v_gradient);
       }
+      __pyx_L5_continue:;
     }
   }
 
-  /* "glove/glove_cython.pyx":111
+  /* "glove/glove_cython.pyx":135
  * 
  * 
  * def transform_paragraph(double[:, ::1] wordvec,             # <<<<<<<<<<<<<<
@@ -17929,11 +18053,6 @@ static PyObject *__pyx_pf_5glove_12glove_cython_2transform_paragraph(CYTHON_UNUS
 
   /* function exit code */
   __pyx_r = Py_None; __Pyx_INCREF(Py_None);
-  goto __pyx_L0;
-  __pyx_L1_error:;
-  __Pyx_AddTraceback("glove.glove_cython.transform_paragraph", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __pyx_r = NULL;
-  __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
@@ -19772,7 +19891,7 @@ __Pyx_RefNannySetupContext("PyInit_glove_cython", 0);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
   /* "glove/glove_cython.pyx":4
- * #cython: boundscheck=False, wraparound=False, cdivision=True, initializedcheck=False
+ * #cython: boundscheck=False, wraparound=False, cdivision=True, initializedcheck=False, language_level=3
  * 
  * import numpy as np             # <<<<<<<<<<<<<<
  * import scipy.sparse as sp
@@ -19814,39 +19933,39 @@ __Pyx_RefNannySetupContext("PyInit_glove_cython", 0);
   if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_collections, __pyx_t_4) < (0)) __PYX_ERR(0, 6, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "glove/glove_cython.pyx":20
+  /* "glove/glove_cython.pyx":23
  * 
  * 
  * def fit_vectors(double[:, ::1] wordvec,             # <<<<<<<<<<<<<<
  *                 double[:, ::1] wordvec_sum_gradients,
  *                 double[::1] wordbias,
 */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5glove_12glove_cython_1fit_vectors, 0, __pyx_mstate_global->__pyx_n_u_fit_vectors, NULL, __pyx_mstate_global->__pyx_n_u_glove_glove_cython, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[0])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 20, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5glove_12glove_cython_1fit_vectors, 0, __pyx_mstate_global->__pyx_n_u_fit_vectors, NULL, __pyx_mstate_global->__pyx_n_u_glove_glove_cython, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[0])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 23, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_4);
   #endif
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_fit_vectors, __pyx_t_4) < (0)) __PYX_ERR(0, 20, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_fit_vectors, __pyx_t_4) < (0)) __PYX_ERR(0, 23, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "glove/glove_cython.pyx":111
+  /* "glove/glove_cython.pyx":135
  * 
  * 
  * def transform_paragraph(double[:, ::1] wordvec,             # <<<<<<<<<<<<<<
  *                         double[::1] wordbias,
  *                         double[::1] paragraphvec,
 */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5glove_12glove_cython_3transform_paragraph, 0, __pyx_mstate_global->__pyx_n_u_transform_paragraph, NULL, __pyx_mstate_global->__pyx_n_u_glove_glove_cython, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[1])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 111, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5glove_12glove_cython_3transform_paragraph, 0, __pyx_mstate_global->__pyx_n_u_transform_paragraph, NULL, __pyx_mstate_global->__pyx_n_u_glove_glove_cython, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[1])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 135, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_4);
   #endif
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_transform_paragraph, __pyx_t_4) < (0)) __PYX_ERR(0, 111, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_transform_paragraph, __pyx_t_4) < (0)) __PYX_ERR(0, 135, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
   /* "glove/glove_cython.pyx":1
  * #!python             # <<<<<<<<<<<<<<
- * #cython: boundscheck=False, wraparound=False, cdivision=True, initializedcheck=False
+ * #cython: boundscheck=False, wraparound=False, cdivision=True, initializedcheck=False, language_level=3
  * 
 */
   __pyx_t_4 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1, __pyx_L1_error)
@@ -19987,31 +20106,31 @@ static int __Pyx_InitCachedConstants(__pyx_mstatetype *__pyx_mstate) {
 static int __Pyx_InitConstants(__pyx_mstatetype *__pyx_mstate) {
   CYTHON_UNUSED_VAR(__pyx_mstate);
   {
-    const struct { const unsigned int length: 9; } index[] = {{2},{68},{35},{54},{37},{60},{24},{52},{26},{34},{29},{33},{45},{22},{15},{179},{37},{30},{32},{1},{1},{1},{1},{1},{8},{5},{6},{15},{23},{25},{7},{6},{2},{22},{6},{35},{9},{30},{50},{8},{20},{32},{22},{30},{37},{5},{8},{20},{8},{15},{3},{15},{5},{18},{4},{1},{9},{17},{18},{3},{11},{5},{6},{8},{3},{15},{6},{12},{9},{5},{6},{5},{11},{5},{6},{7},{8},{12},{18},{8},{1},{2},{10},{5},{21},{13},{5},{8},{1},{13},{4},{8},{9},{8},{7},{4},{10},{4},{8},{4},{7},{16},{10},{2},{5},{3},{4},{12},{3},{10},{14},{11},{10},{19},{14},{12},{10},{17},{13},{8},{3},{12},{12},{10},{12},{19},{5},{13},{15},{4},{2},{6},{5},{4},{4},{6},{13},{8},{19},{6},{6},{6},{6},{6},{8},{22},{7},{21},{1},{246},{478},{1}};
-    #if (CYTHON_COMPRESS_STRINGS) == 2 /* compression: bz2 (1708 bytes) */
-const char* const cstring = "BZh91AY&SY:\372\364\376\000\000\362\177\377\377\177\177\377\177\347\377\377\277\347\373\016\277\377\377\360@@@@@@@@@@@@@\000@\000`\006N\373\233\271Y\331X\326Y\026\261Gh;\204\242\211\3525O\r\r5#\324zzj\237\252z\230\236(24\017H\323OH\000i\240dz\215\007\212=G\2123iM\251\240\320\200LBj\237\224\312~\222\r\001\352\000\001\243@\001\240\000\000\000\00042d\016\000\000\000\000\000\000\310\000\000\000\000\000\000\000\014\200\002SB\004\223LM2L\223\320\214OP\001\240\000\000\000\000\000\000\000\001\243\3248\000\000\000\000\000\003 \000\000\000\000\000\000\0002\000\tD\020\232f\251\351\246\246\246\236\312\236\232\2153SF\207\244\006\2324\000\000\000\000\032\001\240h\003H\253\331\206Y1P\333D\311\276\234\004ccq\213\224\310II\002\203$\031\211I=?\240\303\225\232\302\256F\336\255\370yj\314\223$\222F\251\003\004\003H\216>1\334\322\204\364FN\205\004\204\005D\240\303\205\032\273\0216a\\\222<p\327\"\243.\352\374\317\271\357\n\375+@\364\372\3723'\263\254\267lS\351&\376V\371<$\332fc\246\240\334\350 \240'\315\037\rF\304\"\226\277\273\322g2>~\246\333=o\257t\3261q\010\232\025D.hi\244\325\035a\203OTdJ\215\031\362$\306\230\342\265\027\371\213n>k\247\213\023\273\t\342\030\265-I\321\026\274\331\222_^\261\nD&\212qWJ\366\r\021\260\322\262\272\\\300\230x\330M\"\216\347!\300\240\216\264\021\365\206\2442\3542X\355g\022\334\313\300\266Y+b0\265\217\304\331(&/\245t\245\361R\256\231Rx\273oG\235+i\2777x\315h\310\302#\006\000o\2322\321\243`\235\326Zq-)\223R\325d\334ue\302E6\2539$X\036\351k\270\351@z\027.\311\235\307}\267\347\2057\347\262\263t\317\231}\225\010\307\312\024\226\313\303Y\021z\2553\326\343Fl\244\267\031\3642\\\027\263\326\211G\0142\315s\032\330/\247\273\200\"9\360\314\272R\335\242\325\035\365-Z\363\242fB\235(x\025\362\202\324\263\336U2n\332\261@\221(Xe\t\007\207Hb\351\257kC\035\310\206\252\346\252\"\214C\201\3335c\315\314\300\267\221\234\215\331\2729\302\321\360X\010b\353t\207\364@]\311w\311\363\205:\017$@`ch\340S \201\025CK\260\245\267\002'h2R\311i\026Tb\314\016\272\334\342\266\236\242U\215\252f&+1""\250Oe\005e\262\232\014 \360\026\005Fr\220\021,Xo\244%\005A\256`*m]\312\314\233\301\262\267\264\336l\317\210G\177s+\321*\"0N\313'x\250\204\005\024T)\245\216\"\n\2109\005CVE`\352 \336\034\236#\207\034\370+\264\253*n\2502\033s+\005&]\211\201\3312;\330x)\307!8\310\315\320\345\316B\332\374/\262R\350\303m\254\327]\254m\272Z\036\305fH\275\242-gw\325bm\235\240E/h\316\356\337\362\022\013=\210\230W\314W\331\025\271\036\200I\034\315\342\0053#R\3068\n\307\354\031!\035x'\252\203Z\013V\305#!\354\375\257#\246\256\327\317\232\233\374\020pi5>\313\242\365\324\233\256IF\246k\243\007X\213\342\376Y\232@4\257%(@%Se\007\026\206\031\331\r\206>\t\002\342\023\277q\006\266\257~'\3334-F\231\250\364\230\201}n\002\244\312\252\002\354\3328zPW\035\206\330\262=w\341Rg\206 .uRBO\267>`\346\311\222c{cS\\@\231\006y\031*m\026\355\016d\340`\314\336\247\202\014\002\004\332\002\325t2\344\270\326\350l\303\330\345\225\304\340s!]G%\001\256\300\3207'kE\231(\014(\312BL\342Lq\230\002\311\324\\\004\231\316'\326\325\302&\214o]-{i\200v4@\326\215\226\30357k\rU\230\305]!<g\210\226\023\270\225N\255M\0314\301\336+\260t\360\305]\302\242\314\211Le\244q\332\314b\232-\251$$\"0M\230\266a\224\303C\241\031Tx\246\031;\000\211\201J\t\211\323Q>\201\220\\w\274\005\024\242\025\267I \010j\255\345\215B$-A\365\213\224$\255\"\037\020\322dF\0202\247EQTL\373\225\212\013\tS1\000\017+.\214\255f0\370K\031\030\326\232H\304\024\304\210\235\226F\207_&al)y]=,rW\250\3355\343\t\222\304\246M\315\342\r\362  \304%\314j\215\244\347o\233\332\206\025\3642\255\357\230l\270\336\014\344\361\326E-\262\203\222\350\036\256\t7S9\320\340r\342*\357~\025W\245e\241*D\244\356\260\251\271\\\216n\345\255\257\004\325Y`U\026\260\231;\336\320V\336Jq\266\313\332\345\212\206\003\001\022\324\026\211\230\261\362\340\022\035\034t\251\026\312E\300\214\333V\224\334\"\t\331\240\2310\234\r\365\245W\030\2650\271%\214oV\260\204\231\261\207k\261\031s;|\245j\261cS\034\366i\214\341\243I\213\243B\246\000\3121\272)\221\272*\245Qf\264A]\212\374\307}\356\\\212\006\025\267k\021\253""\342\262\200\344\345E5s\342\234q\235i!H \226\373\022\025\266\245\267Ju$\003\324\322\215f!\226Ql\010\003XI\332wT\214\237\036\207\2033x0;*\n\000\310;%\252\214Qs\232\200\253m\215\243\215HvR\035\252\002JF8\250>J[\232\033\333[I\354\033\325\272]\024\262\245\344\335\013CG>\377\334)\242\352%m4\300\372.\rp\362\031\t\030\204\302\233\210byL\327\014\211\021\270^=\305\023\321\3740\244\374@\247\246\215\273\347\275(\237\242&\211\243\244f\352Y'\252/|\340'\036#\333\341\3372\203C\246\335\233\026\013\nP\244\221\225\312Pl\220\224\2054\311Yqr\232xi)\026\251\\\036M\203ce\374\2464\243\216\251\323\275\001\230\303\237\303\001\241\275\235\305\251\376\334\227\363\264\364\364\223\204T<\250\250\306]\034\267\014\301\211\037\371_hZ\006l\0226F#\221\216^\326\326M\\r\312&\007?\361w$S\205\t\003\257\257O\340";
-    PyObject *data = __Pyx_DecompressString(cstring, 1708, 2);
+    const struct { const unsigned int length: 10; } index[] = {{2},{68},{35},{54},{37},{60},{24},{52},{26},{34},{29},{33},{45},{22},{15},{179},{37},{30},{32},{1},{1},{1},{1},{1},{8},{5},{6},{15},{23},{25},{7},{6},{2},{22},{6},{35},{9},{30},{50},{8},{20},{32},{22},{30},{37},{5},{8},{20},{8},{15},{3},{15},{5},{18},{4},{1},{9},{17},{18},{3},{11},{5},{6},{8},{3},{15},{6},{12},{9},{5},{6},{3},{5},{11},{5},{6},{7},{8},{12},{18},{8},{11},{12},{1},{2},{10},{5},{21},{13},{5},{8},{1},{13},{9},{4},{8},{9},{8},{7},{4},{10},{4},{8},{4},{7},{16},{10},{2},{5},{3},{4},{12},{3},{10},{14},{11},{10},{19},{14},{12},{5},{10},{17},{13},{8},{3},{12},{12},{10},{12},{19},{5},{13},{15},{4},{2},{6},{5},{4},{4},{6},{13},{6},{6},{8},{19},{6},{6},{6},{13},{6},{6},{8},{22},{7},{21},{1},{284},{561},{1}};
+    #if (CYTHON_COMPRESS_STRINGS) == 2 /* compression: bz2 (1805 bytes) */
+const char* const cstring = "BZh91AY&SY\214\312\260\236\000\001\007\177\377\377\177\377\377\373\347\377\377\277\343\373\333\377\377\377\360@@@@@@@@@@@@@\000@\000`\006\277xu\306\356j@RClUK\203\260\224H\321MOL5\033\324\247\2654\312zG\251\350\2326\223FF\206@\r\006\215\003\324\007\222\032?T`\232= \315G\224\032!\244de14\324\031=Di\3516\243\324h\000\320\000\320\000\000\000\000\000\003@\034\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000Jh\201&&\204d\247\246\024\332\230&\200\036\243A\246\200\000\000\000\000\000\0002\030\207\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\022\222&\024\364e\003i\032mC@\r\000\000\000\000\000\000\000\000\000\006\200;*\272\206\010P\302\"\205)\ra=S\330%\222\305\302\\%\326\367\027X`\372\027O\301t\320\307\372\027\023:\3545 \334\377\253\310\230u\320$\311\222F\231\003X\270\340&5\0230\204\307\013@\364\202fM\245\314Z\003\222&\266r\256\010M\221\305\"\215%S\257\016\\Zy\355\0044Tz\202i!\276\317\330\376\317\274\217\356?\225\377z\235L\032\323\364\345^c\376\230S\372\225\260\260\370\321$z\020S\303\271\314\303\376ok\272\264\274x\224\277{<\016\004|\217\346.[%\243I\250\214\230)_[\223\006AF\255V\254\350\010?t\255\341\206\273\220x\221v\210\344Vk\375\272\270=\366O\025%\236\023\3041Y\326r\312+l/\246\332\357\316\006\345\t\3103W)\206P\371\\c\351\233\201k\004\242\022\257\005\272\020\004\311l\0062]:DLkv\332ae\343\323X\343\226\364\005G\230\332\356\037\225<\230Qp\301AtH\375\276v\3205%&q\227\230m\275\0024\251P5\341 \263LL2\323\322\232?\210V\342\243\303\316Z\r*\303\t\366\253/\214dB\324x\326z\352\307\277\226 F\232\245\3636\027\256\257/&\274\213\211Vz \361\017Co\224\241\t\341\326!\031\362+\367'3%\203\255!\014\206w\217\302\007\243V)\241\301\342hX\363\02466I?\203T\317\344\326\006:\370\341\232#\212\006\\\331\035\302\331\035\t\326\224\344\304\245 \2376\036\004\255\335_\005\251\324\177\006\3657\246-l8\345@\230\224\226\014\241 \360\347i1\2313\326E\220\224\030\001\032\227\030\370)\024m\007~\241\370\024\245zz\027\230\3623\211\311\247e\202\301\354\220\316\215\315\237\341\326k\215""\317\022\277\254\361\r]\314\31308q\301 FFr\233d\027cR\351\001\254\322S\305\257\250\033\311G8\030\022\265\263b\021\203\316\036mY\214%\243\217o\372\n\315\304\032&\2436\350\264\\\027\256\214  \001\200Jf\347\334(\026\353\005\373h\n\234\2476\\\010\312\222\335\216vV\024\365Z\212\312~u\343\327\253\317\354z\006\302\207e\213\234\234f&c8\204&5jy\024\014a\204\307\331T\343\250\203H\344\270G\336\267*E5\225e<T\031\206\2775F\234\244\354J\007d\310\360\241\340\237\024\202Wf/\345\365\361!k~\301\366\344\227:\033]%M\252\324\327d\225\t\306DY\352\242\265w}5%\\Z\004N\325\214]\333\254\204\202\257R%\n\327\266\356\253\344U\354\341\203\326}\007\"}\261G\325:\206\203\246&v\026\2158\355]J\r\272\323\207d=k\034}\253\246\256\307\306\223\333\334\203sA\245\365\331\026\246\224\334I(\322\315d\\o\243\220.\243\342\035-m\245\214B\343\026A\202P\241\256\212\341\243\242((\230\202hD-w}\330Ra\263\207\372g\026\022\220\220e\235@\233\004\220\013t\202G\204o\323\200\345\034\024\351\276\362\221\2041\003X\352\244\204\237a\205\355n\t\231\223\032u\2655D\t\220VD\360\317\264ms\2251d!%h\224\020@\034Mxb\353u\263\262j$v\200\225$aZ,)A\304\2054\034\026\006eM\003\031\336h\273\211\341\nhNS\247\006\003\206\2000\244\246a`\010\"/\252\262\221\346\030\204m\331+\267'p;\031@\325\215\225\271\202y\351\rEyu\035!<c\021&\023\270\225\016\255\013\214\224\240\350\2530snb\216\341A^\211&3h\034v\253\027O*\351I\t\010\213\211U\212\3362D\2243\216$\331.\303\022|\303>\320`\203!\314\346|\2645\327\234\363b\337\260RM\205\344\273W\301\301\322Q\346\220\203(8\363\020\n\216#\213\214\2142.:\210\261\021#\272\212P\245\t*n\001\300\237H\3008\003\310\234fMe\270\003\237\014\004c8\325\003\016Z*q\030U3\344\313\235%\310\221I,\227;C\024\347\327\203\275\0161\r\313\036\371\246M\277\2746\262  \276\022[\255A\264\235\216\263khaT\320*Z\327\215\233\205\340\304\227\r$)6\311\216I\320=\034\022n\314\304\342\330\345\204Q\336\334\205G\235$\320\224\342I\322\271O\nf7\360\255v\252xJ)*\2275hI\033\362\264\023\257\222\3446\325}\2621\307pR`)B\265\n\302\033j\266\034l\207G\014\350Es\3371pw""\256c\270\250\233xA-\232\tH\314\234\013\307I\265\316\222\240\327\236$ \364kV`\314\211\316\312Y8J\245\022L\233F\260\352\220McS\034L\323\2116Z\n\334\221\222\231p\031\242\354\342\224\206\346*\024UeXp\333\016\\\245*\254o\010\003\215q\3025N\260i@\226\006F7\031\231\360\016\212\200\316+m}hY\307\250cR!\3717\320\n\242\212jd\214\0053^\006\274L@E\222\005\256\361\331B\223/\003\013\t+\010=h \023\025\350\357I\013[\360\034>T\341\252\362\306\254t\262\032\250\334%A\304+Z\277\303[[`P\264?\320\221$S\226\247\320\262*)\354\r!\342\316\311\262\241\214\235\321\234\3649.\364m0\221$yN\320x\203\200\373\211\272\226\377\002\243\215\352*\177\213\313t\337\017\321Dw\017(\370\356\236\363\030\2141\014\233\253\036\372R5.\026\010\312'4\343\223\213\305\270\215\003T\327\210\267\212\305\360\237\264\276p\224\256X7\277\206O\224S;\235a\035\025\343\271\213\177 \236\223\267\t\364\302g\310\252NL9\261\227R\3213\3737Ht\227\340\307\330\212\341\202i\231\036\n\346\257gOOE.\007\311\014\217\220\022O\"\310\361<\n\221\267\013h\255\014$/\346^\005G\026m\221\266\244\005E\"E\t\304\352Q\311\270\211\316c\222\234\024(\177\342\356H\247\n\022\021\231V\023\300";
+    PyObject *data = __Pyx_DecompressString(cstring, 1805, 2);
     if (unlikely(!data)) __PYX_ERR(0, 1, __pyx_L1_error)
     const char* const bytes = __Pyx_PyBytes_AsString(data);
     #if !CYTHON_ASSUME_SAFE_MACROS
     if (likely(bytes)); else { Py_DECREF(data); __PYX_ERR(0, 1, __pyx_L1_error) }
     #endif
-    #elif (CYTHON_COMPRESS_STRINGS) != 0 /* compression: zlib (1514 bytes) */
-const char* const cstring = "x\332\255UKs\023G\020\266\000S\220();\201\204\200I\215! S\005\n&\204$`\2342`\022U%\370\241\202\213\223\332\032\355\216\244\201\325\314jfV\017N9r\324Q\307=\356q\217:\352\350\243\216:\372'\370'\244{ve\311qH%U9hv\036\335=_\177\375\365\350!\331\360}\342\361\006\023\232K\241I\240\230\313<.j\323Mr\303#\215P\033Ra\204\013\217u\230G\250\360\210\220\206h\237\203\371\223\260Ze\212\2648k\023O2m\217X'\220\232\021m\024\367\230~J\005\221\302\357\022W1j\030\241\244\222:\231:5\204k\342Jax-\224\241\206KH\2035\244\352\026\301\013CQ\255yM\020#\t8{wl\234\324\002\257\314\214\262\300m\305\r\255\370,3HAU\225l\374\223\257M\213\264\271\251\023\323\r\030)d\373FQ\241m\032S\227\324\014<8Pef\270{6K\030OIH\2156\033\201\351\022]\247\020\332\204\001\200\253JE\334\256\251KQ\244J\321n\311\002\220\241!\262J*2\024\236&+\264\003Qnx\267J'\357J\311\017\203@*\303\274\222hQ\237C\225\244\307n#\361`\014E*\270\005\002\367\024\3402L\244p\233\324\300kb\234\302\001\256\3555k\277\332\004_a\202\000\341\205\004*mi\236Z\224\230\217\307|^a\nH\006\n\261\254p\211\255\237 \333\233\333w\356\177\177\337\312B\261\327p\275\006t\025\327\207\312\201\0340\247\220\373\006.Czu\221\224\252\244+C\"\030\300\204\262\006`7\353`\352L\020\315\014NH\301\326\202\032\310\333\001w\320f!\343\225\267\030z?\247\276f\305\255c\344\001\344L`\324u\231\236\260Y6, \r\332\265\374\201\236\3372%\247D\277\024V9\020\022\324\330b\n\204aX\003\327\262\202I\025\327\013\267~\244\236\347\010\244\007\223%\300\320\335\216+}\037\341@a\212\264\342\256\315h\031\215R\260\353\177\335\236Hh\335\343\032\357e\366\366\232[\363e\213}mG'\323H\320\355\220\025,^\315j\n\363\302\026e\035\303\204\261\r3\355V\256\323@\036b\327\374-#k\217\311\335\023\212\023\022\nZ\245\241o\210\343(\346\205.s\034\342\2056}!\305\035(p\213S\037N].\270\201\303\224\204\365\265\264\245\275c\271\235\334C\351\035\245x\354\374h7<\342\233\372\276t\355\273\200\330\210G\r-\376\315i\252Y\214\221=+\305\215\362\323Ri\323\367y\240\271v\234\355n\007~\317@\232\316\013`g\227U\313\254\0312\3412Tvq*r(\323$\252\223""\n\205\372A\235R\335\025.\227EW*hF.\230\256P\315\\\340\000\225\3518\223I\215\031\244\027\227`\344pP\246\242.\253P\367\r\210aF\017.\310\321\330\001\274=\304\005c\303\3036p\000pJ)\340\203\316\205R\252\256\323f\274V\207\235\260a[\215\005\322\255\333A3\245\244\252B%Z\340\"\225\256\372\264\246\241\254\rj\262\016w\234j(\\D\t\370\264\301\334\034\253\243\342\254\232j\212z\034.\343\334s\034\336\300'\004\276\370\000a\235\241\344\216\317\250\022 0\007\021 \314#:RMe\302z}\314\316\227HP\203\002\0270v\034\2334N\360\000\236O|;\361\201\202S\351\205>|\005mLG`\005F\326\206A\202\257t\335P),\234\206\265\251\343\343\255E\000\264\004] -\000\242\003\252(\344\022\324\201\217@\006\360\317\205\374\342+\341@\2778@\233\373F\207\215t\225\261\201S\313\275\235\205\"\340\356\033\200\262)&v-\373\347\201\0246C\352\247\330\246\375q4K\231\234\331`\035\234\326\2706X\246\266vy\320-j\200\250\301\r^\262,M\230e]g\347\031\252\231\371$\260U\272\256\2032}\226\026gf\301\361E\203\002\350 \275\001\\\025\370\263@\033\t?\025\302\373\013\tM\n\re1`\3438\366\357\014\025\343\034q\007\024\000\225a\000\035\307\340\177!d\272-\225\347P;Vp\254p\252'_\347XX\334\005\356\263\317\361\263\316\037\271\303\273s\363\027z\337\365oF\271hq|\206D\247\243\007\361b\274|\370\325\334\374\371w\347{\027{\264\327\034\237\313\277\333\314\246\371\245\376V\274\032o\034\344/\366\312\375\\\177q\234\277\320{\336_\356\257\036\236\235\373\3502\256\027z\363\275\227\2703^\270\332\337\213O\305\267\023\232\350\301\265\301O\303\325\341\317\373\033\343\374\345\376J\264\034Y\217\245\376\303h'\252\306\317\223k\311/\303\323\303\325q\376\323\336c\200\361(\256$\363\311NB\321jq\032\222\214\310\203\244283\330\030\374\276\277\274\017;W\372\337F\247\242\002\300^I\226\307\013K\375\215\376\253h-n&\247\223{\311\316\370\372\215h\007\221\354\364\253Q).'9\310\272\370\236\254\277\234\373\340\303q\376\363^st\351AB\017&\311\216\247\311\276'\353\203\223Y\027\222\305dep}\260;h\017\351\260\263\337<\310\177\321\277\022=\211\3521\215;\211\032\\\032.\016\227\377=\007\013\357""\302\336\023[\203\005\000\330\317\215\027?\353U\340\203\253\303s3\034\035\314p4z\274;\332-\217\312{\243\275\337N0\205a\316Eg\243Z\274\023\327\023w\360\311`u|s%\206\220@\031\300\254&\245Ay\230\373\277\343a2WGK\367 \333g\203\334\350\207\255\375\346h{\007\031\335\350\355E\037C\316\271q\376\032\010\344Q\314\222ol\031\376\203\365\326\237N\371[\017";
-    PyObject *data = __Pyx_DecompressString(cstring, 1514, 1);
+    #elif (CYTHON_COMPRESS_STRINGS) != 0 /* compression: zlib (1610 bytes) */
+const char* const cstring = "x\332\265U=s\033E\030\216C\314$ @\202\204|\020`m&\310\314$\"\201\020\276\0223Jb\300\005\211?&\220\301\003\313\336\335J\332\344\264{\332\335\223%*\312\224*\257\274\362J\225*]\272T\251\322?\301?\201\367\335;Y2\2010\024\024\332\333\217\367\363y\236]}E\352aH\002\321\346\322\010%\r\2114\367y ds\266I\256\004\244\035\033K<N\204\014x\217\007\204\311\200He\211\t\005\230\337\215\033\r\256IW\360]\022(n\334\021\357E\312pb\254\026\0017\367\230$J\206}\342k\316,'\214x\271\223m1K\204!\276\222V4c\025\033HB\332\274\255t\277\006^\030\212\031#\232\222XE\3009\270\346\342\344\026\230\2620*\002\357ja\231\027\362\302 /\252\241U\373E\276\256-\262+l\213\330~\304I\265\330\267\232I\343\332\230\271\344f\340!\000*;\207\335\375y\300D\016Bn\264\326\216l\237\230\026\203\3206\216\240\270\206\322\304\357\333\226\2225\2465\353\257\273\002Tl\211j\020O\30520d\205\365 \312\225\340\243\365\347s\345\340\307Q\244\264\345\301\272\354\262P\000K*\340W\021x0\006\222\252~\225@\236*$\303F\252WI\023\274\246\306y9\200\265Ks\373\007\327\340\217\330 \224\360@\001\224\216\232{\256J\354'\340\241\360\270\006\220\001B\244\025\2228\376$\331X\333\270v\363\213\233N\026\232?\201\364\006\252\363\374\020\230\0039`O\261\010-$CxM\215\2547H_\305Dr(\023h\215\300n\336\301\266\270$\206[\234\220\252\343\202Y\350\233\202;h\263Z\340*\272\034\275\277e\241\341\265\207\307\300\203\222\013\2011\337\347f\212\346\266\345\021i\263\276\303\017\364\374;\327j\006\364#\351\224\003!A\215]\256A\030\226\267q\255<l\252\266Z\375\350\033\026\004T\"<\330,\001\204\256\367|\025\206X\016\020Sc\236\177{N\313h\224\027\273\372\327\355\251\204V\003a0/w\331\233~3T]\376\261\033i\241\221\250\337#+H^\323i\n\373\302+\312{\226K\353.\314\354\266\n\223\007\n\260v#~\347\344\366\035r\3759\305I\005\2046X\034ZB\251\346A\354sJI\020\273\366\245\222\327\200\340\256`!\234\372B\n\013\2079\010\253\267\363+\035\034\353\355\371=\224\336Q\213\307\316\217v\343#\274Y\030*\337\275\013X\033\t\230e\265\2779\3155\2131\212g\245V\337\276\267\276\276\026\206\"2\302P\272\321\357\301\357>H""\223>\000t\266xc\233wb.}\216\312\256\315D\0164M\243\322\\(,\214Z\214\231\276\364\205\252\371J\303e\024\222\033\217\031\356\003\006\250LJ\247\223&\267\010/.\301\210\nP\246f>\367\230\377\024\3040\247\007\037\344h\335\000\336\001\326\005c;\300k@\241\340\034R\250\017n.P\251\373t\227\213f\013v\342\266\273j<R~\313\r\206G\206k\255t\003\310\350\202\227\322\246\021\262\246\001f\333\314\026\227\234\322F,},\024J4\026\333\243NJ\265yA55\013\004\344\233~\251\351\034M\361u\020\001\245\242\215\217\013|\361iB\005\200\030h\310\231\226 =\212\265a\003G@\345j+$\367\344\230]\250\232\324A\020*\304\260\315\000.\030{\371&N\360\000^X|^\361\r\203S\025\304!|%k\317F\000\016F\276\013\203\002_\345\373\261\326\310\255\201\265m\341\373nd\004\310E}\3005\002.\"\246\0314\026\265\000\257HE\360\347\206\024\340CB\341JQ@\326\177j\342v\276*\320\302\251\243\307\315b\031\t\377)\224\262&\247v]\367\377\202\020wb\026\346\265i|\236f\367\350h\226\303=\267\301{8m\nc\221\313]\343\213\250_3P\247\0017x\361\212^aV\334N7/J\233\233O\003\273\033aZ\240\340\220\347T\315-\004\276|@\207\211\362\014\340\252\301\037\204d\025\374t\014\3574t5\245\036N\332\021en\364(\265`O\251\373\013D\211\321#0\001\023\3006\216\340\226rPK\314M!\332\300\021\271\253t@\231\033=\034=\301\314\364K\217\345\303]`\246\370\034?\353\375\261px\375\304\342\331\301\347\311\207\351BZ\231\234\"\351K\351\255\254\222-\035^>\261x~\300\016_?\261x\346\331\231\301\271\001\033t&\247K\317\326\212i\351r\3620\273\221\325\017J\347\006\333\311BR\231\224\316\016\276M\226\222\033\207/\237x\255\374\254\213\273\223r\345\240t!YL6\023\206\333\227\222\013i%]\232\224\312\203\305\301#4\236\224\337Mv\262\223\331\325!\033\232\321\362\350\273\275\033{\337\357\327\321\370\034\204[N\352\223\322\033\020l\013R\226\337O:\0070t\323\355l\341\240\364\326\340\016\024\373u\346\r\027\320\2742\013I\306\344\326\320\033\235\032\325G\277\354/\355\177\272\357\21576'\345w\222\317\322\223i\025\272[\031.M\312\227\223z\362(\275\232\261\314\014\227\207\017\366\226\367\352X\315f\322H\327\263\255\254\003""\330\324\376\001\233KSl^yuR:?\350\214/\334\032\262\203)$\223\031$/\306\006W\027\377\212\316J\266\234}?\254\0177\377\006\245\352\2602\\\031}0\332\032\355\356\261\275\336~\347\360\364\277\341\204\201\317\016\276N\274t!O\036\017\356:\002\313P7TQy{\340a1\260\302\006~\310\336\314n`\324#8\017\312\027\223\363\000\300\205\254\202\020\256\242\301\244\374^\"R\215;3\254\307w\266\306[\333\343\355\235\361\316\257\343_\177\033\377\306\362\034\247\323\305\364\247\254\236=\036n\217N\216j\373'\367\001\374+\351f\332\312\032Cd\272r\351\177N\360\332\273\343\313\237\000\307\367G\013\343/\037\356w\306\033\217\307\217\177\036\377\274\203\274\324\007;\351\353(\242Ii9]\002=\311\321\335\021\222\371\237}\036\376\to\334\241\275";
+    PyObject *data = __Pyx_DecompressString(cstring, 1610, 1);
     if (unlikely(!data)) __PYX_ERR(0, 1, __pyx_L1_error)
     const char* const bytes = __Pyx_PyBytes_AsString(data);
     #if !CYTHON_ASSUME_SAFE_MACROS
     if (likely(bytes)); else { Py_DECREF(data); __PYX_ERR(0, 1, __pyx_L1_error) }
     #endif
-    #else /* compression: none (2863 bytes) */
-const char* const bytes = ": All dimensions preceding dimension %d must be indexed and not slicedBuffer view does not expose stridesCan only create a buffer that is contiguous in memory.Cannot assign to read-only memoryviewCannot create writable memory view from read-only memoryviewCannot index with type 'Cannot transpose memoryview with indirect dimensionsDimension %d is not directEmpty shape tuple for cython.arrayIndex out of bounds (axis %d)Indirect dimensions not supportedInvalid mode, expected 'c' or 'fortran', got Invalid shape in axis <MemoryView of Note that Cython is deliberately stricter than PEP-484 and rejects subclasses of builtin types. If you need to pass subclasses then set the 'annotation_typing' directive to False.Out of bounds on buffer access (axis Step may not be zero (axis %d)Unable to convert item to object.>')?add_note and  at 0xcollections.abc<contiguous and direct><contiguous and indirect>disableenablegcglove/glove_cython.pyx (got got differing extents in dimension isenableditemsize <= 0 for cython.arrayno default __reduce__ due to non-trivial __cinit__ object><strided and direct><strided and direct or indirect><strided and indirect>unable to allocate array data.unable to allocate shape and strides.ASCIIEllipsis__Pyx_PyDict_NextRefSequenceView.MemoryViewabcallocate_bufferalphaasyncio.coroutinesbasec__class____class_getitem__cline_in_tracebackcolcollectionscountcounts__dict__dimdtype_is_objectencodeentry_weightenumerateepochepochserrorfit_vectorsflagsformatfortran__func____getstate__glove.glove_cythongradientiid__import__indexinitial_learning_rate_is_coroutineitemsitemsizejlearning_rateloss__main__max_countmax_lossmemviewmode__module__name__name__ndim__new__no_cooccurrencesno_threadsnpnumpyobjpackparagraphvecpopprediction__pyx_checksum__pyx_state__pyx_type__pyx_unpickle_Enum__pyx_vtable____qualname____reduce____reduce_cython____reduce_ex__registerrowscipy.sparse__set_name__setdefault__setstate____setstate_cython__shapeshuffle_indexshuffle_indicessizespsparsestartsteps""topstructsum_gradients__test__transform_paragraphunpackupdatevaluesword_aword_bwordbiaswordbias_sum_gradientswordvecwordvec_sum_gradientsx\200\001\3600\000\005\024\2207\230&\240\001\240\021\330\004 \240\003\2406\250\021\250!\360$\000\005\t\210\t\220\025\220a\220q\330\010\014\210E\220\025\220a\220q\330\014\034\230O\2501\250A\340\014\025\220S\230\001\230\021\330\014\024\220F\230!\2301\360\006\000\r\032\230\021\330\014\020\220\005\220U\230!\2301\330\020\035\230[\250\002\250,\260a\260s\270\"\270G\3001\300H\310A\330\014\032\230(\240!\2401\360\006\000\r\034\230:\240Q\240f\250F\260\"\260L\300\003\3001\330\014\023\220=\240\003\240;\250b\260\005\260Q\260a\360\006\000\r\021\220\005\220U\230!\2301\330\020 \320 6\260b\270\004\270A\270]\310!\3101\330\020\033\2305\240\002\240'\250\021\250(\260!\330\020\034\230A\230V\240<\250q\260\003\2602\260Q\330#%\240Q\330\020\035\230Q\230f\240I\250S\260\001\200\001\360.\000\005\024\2207\230&\240\001\240\021\330\004 \240\003\2406\250\021\250!\360\036\000\n\013\330\014\027\220q\320\0306\260a\340\014\034\230O\2501\250A\330\014\025\220S\230\001\230\021\330\014\025\220S\230\001\230\021\330\014\024\220F\230!\2301\360\006\000\r\032\230\021\340\014\020\220\005\220U\230!\2301\330\020\035\230[\250\002\250'\260\021\260(\270#\270R\270w\300a\300x\310q\340\014\031\230\033\240B\240h\250a\250x\260r\270\030\300\021\300!\360\006\000\r\034\230:\240Q\240f\250F\260\"\260L\300\003\3001\330\014\023\220=\240\003\240;\250b\260\005\260Q\260a\360\006\000\r\020\210u\220B\220a\220q\330\020\027\220q\230\001\330\021\026\220b\230\001\330\020\027\220q\360\010\000\r\021\220\005\220U\230!\2301\340\020 \320 6\260b\270\004\270A\320=R\320RS\320S[\320[\\\330\020\033\2305\240\002\240'\250\021\250(\260!\330\020\027\220q\230\010\240\006\240g\250Q\250h\260c\270\022\2701\330&(\250\001\330\020%\240Q\240h\250f\260I\270S\300\001\340\020 \320 6\260b\270\004\270A\320=R\320RS\320S[\320[\\\330\020\033\2305\240\002\240'\250\021\250(\260!\330\020\027\220q\230\010\240\006\240g\250Q\250h\260c\270""\022\2701\330&(\250\001\330\020%\240Q\240h\250f\260I\270S\300\001\360\006\000\r\035\320\0342\260\"\260D\270\001\3209O\310q\320PQ\330\014\024\220A\220[\240\016\250b\260\001\330\014\"\240!\240;\250e\2603\260a\340\014\034\320\0342\260\"\260D\270\001\3209O\310q\320PQ\330\014\024\220A\220[\240\016\250b\260\001\330\014\"\240!\240;\250e\2603\260aO";
+    #else /* compression: none (3049 bytes) */
+const char* const bytes = ": All dimensions preceding dimension %d must be indexed and not slicedBuffer view does not expose stridesCan only create a buffer that is contiguous in memory.Cannot assign to read-only memoryviewCannot create writable memory view from read-only memoryviewCannot index with type 'Cannot transpose memoryview with indirect dimensionsDimension %d is not directEmpty shape tuple for cython.arrayIndex out of bounds (axis %d)Indirect dimensions not supportedInvalid mode, expected 'c' or 'fortran', got Invalid shape in axis <MemoryView of Note that Cython is deliberately stricter than PEP-484 and rejects subclasses of builtin types. If you need to pass subclasses then set the 'annotation_typing' directive to False.Out of bounds on buffer access (axis Step may not be zero (axis %d)Unable to convert item to object.>')?add_note and  at 0xcollections.abc<contiguous and direct><contiguous and indirect>disableenablegcglove/glove_cython.pyx (got got differing extents in dimension isenableditemsize <= 0 for cython.arrayno default __reduce__ due to non-trivial __cinit__ object><strided and direct><strided and direct or indirect><strided and indirect>unable to allocate array data.unable to allocate shape and strides.ASCIIEllipsis__Pyx_PyDict_NextRefSequenceView.MemoryViewabcallocate_bufferalphaasyncio.coroutinesbasec__class____class_getitem__cline_in_tracebackcolcollectionscountcounts__dict__dimdtype_is_objectencodeentry_weightenumerateepochepochsepserrorfit_vectorsflagsformatfortran__func____getstate__glove.glove_cythongradientgradient_sqgradient_valiid__import__indexinitial_learning_rate_is_coroutineitemsitemsizejlearning_ratelog_countloss__main__max_countmax_lossmemviewmode__module__name__name__ndim__new__no_cooccurrencesno_threadsnpnumpyobjpackparagraphvecpopprediction__pyx_checksum__pyx_state__pyx_type__pyx_unpickle_Enum__pyx_vtable____qualname__ratio__reduce____reduce_cython____reduce_ex__registerrowscipy.sparse__set_name__setdefault__setstate____setstate_cython__shapeshuffle_in""dexshuffle_indicessizespsparsestartstepstopstructsum_gradientstemp_atemp_b__test__transform_paragraphunpackupdatevaluesweighted_lossword_aword_bwordbiaswordbias_sum_gradientswordvecwordvec_sum_gradientsx\200\001\3600\000\005\024\2207\230&\240\001\240\021\330\004 \240\003\2406\250\021\250!\360\034\000\005\027\220a\360\016\000\005\t\210\t\220\025\220a\220q\330\010\014\210E\220\025\220a\220q\330\014\034\230O\2501\250A\340\014\025\220S\230\001\230\021\330\014\024\220F\230!\2301\360\006\000\r\020\210v\220S\230\001\330\020\021\340\014\030\230\005\230Q\230a\360\006\000\r\032\230\030\240\021\240!\330\014\020\220\005\220U\230!\2301\330\020\035\230[\250\002\250,\260a\260s\270\"\270G\3001\300H\310A\360\006\000\r\025\220F\230\"\230A\330\014\017\210v\220R\220q\330\020\037\230q\340\020\037\230v\240S\250\001\340\014\023\220=\240\003\240;\250b\260\001\360\006\000\r\021\220\005\220U\230!\2301\330\020 \320 6\260b\270\004\270A\270]\310!\3103\310b\320PQ\330\020\033\2305\240\002\240'\250\021\250(\260!\330\020\034\230A\230U\240,\250a\250s\260\"\260N\300\"\300A\330\020\035\230Q\230f\240I\250R\250q\200\001\360.\000\005\024\2207\230&\240\001\240\021\330\004 \240\003\2406\250\021\250!\360\032\000\005\027\220a\360\016\000\n\013\330\014\027\220q\320\0306\260a\340\014\034\230O\2501\250A\330\014\025\220S\230\001\230\021\330\014\025\220S\230\001\230\021\330\014\024\220F\230!\2301\360\006\000\r\020\210v\220S\230\001\330\020\021\360\006\000\r\031\230\005\230Q\230a\360\006\000\r\032\230\030\240\021\240(\250\"\250H\260A\260Q\330\014\020\220\005\220U\230!\2301\330\020\035\230[\250\002\250'\260\021\260(\270#\270R\270w\300a\300x\310q\360\010\000\r\025\220F\230\"\230A\330\014\017\210v\220R\220q\330\020\037\230q\340\020\037\230v\240S\250\001\360\006\000\r\024\220;\230b\240\001\360\006\000\r\020\210u\220B\220a\220q\330\020\027\220q\230\001\330\021\026\220b\230\001\330\020\027\220q\340\014\034\230M\250\022\2501\360\010\000\r\021\220\005\220U\230!\2301\340\020\031\230\027\240\001\240\030\250\021\330\020\033""\230>\250\022\2501\330\020\036\230i\240r\250\021\330\020 \320 6\260b\270\004\270A\320=R\320RS\320S[\320[^\320^`\320`a\330\020\027\220q\230\010\240\005\240W\250A\250X\260S\270\002\270.\310\002\310!\330\020%\240Q\240h\250f\260A\360\006\000\021\032\230\027\240\001\240\030\250\021\330\020\033\230>\250\022\2501\330\020\036\230i\240r\250\021\330\020 \320 6\260b\270\004\270A\320=R\320RS\320S[\320[^\320^`\320`a\330\020\027\220q\230\010\240\005\240W\250A\250X\260S\270\002\270.\310\002\310!\330\020%\240Q\240h\250f\260A\360\006\000\r\035\320\0342\260\"\260D\270\001\3209O\310q\320PX\320XZ\320Z[\330\014\024\220A\220[\240\016\250b\260\001\330\014\"\240!\240;\250n\270B\270a\340\014\034\320\0342\260\"\260D\270\001\3209O\310q\320PX\320XZ\320Z[\330\014\024\220A\220[\240\016\250b\260\001\330\014\"\240!\240;\250n\270B\270aO";
     PyObject *data = NULL;
     CYTHON_UNUSED_VAR(__Pyx_DecompressString);
     #endif
     PyObject **stringtab = __pyx_mstate->__pyx_string_tab;
     Py_ssize_t pos = 0;
-    for (int i = 0; i < 149; i++) {
+    for (int i = 0; i < 157; i++) {
       Py_ssize_t bytes_length = index[i].length;
       PyObject *string = PyUnicode_DecodeUTF8(bytes + pos, bytes_length, NULL);
       if (likely(string) && i >= 45) PyUnicode_InternInPlace(&string);
@@ -20022,7 +20141,7 @@ const char* const bytes = ": All dimensions preceding dimension %d must be index
       stringtab[i] = string;
       pos += bytes_length;
     }
-    for (int i = 149; i < 152; i++) {
+    for (int i = 157; i < 160; i++) {
       Py_ssize_t bytes_length = index[i].length;
       PyObject *string = PyBytes_FromStringAndSize(bytes + pos, bytes_length);
       stringtab[i] = string;
@@ -20033,14 +20152,14 @@ const char* const bytes = ": All dimensions preceding dimension %d must be index
       }
     }
     Py_XDECREF(data);
-    for (Py_ssize_t i = 0; i < 152; i++) {
+    for (Py_ssize_t i = 0; i < 160; i++) {
       if (unlikely(PyObject_Hash(stringtab[i]) == -1)) {
         __PYX_ERR(0, 1, __pyx_L1_error)
       }
     }
     #if CYTHON_IMMORTAL_CONSTANTS
     {
-      PyObject **table = stringtab + 149;
+      PyObject **table = stringtab + 157;
       for (Py_ssize_t i=0; i<3; ++i) {
         #if CYTHON_COMPILING_IN_CPYTHON_FREETHREADING
         #if PY_VERSION_HEX < 0x030E0000
@@ -20095,9 +20214,9 @@ typedef struct {
     unsigned int argcount : 4;
     unsigned int num_posonly_args : 1;
     unsigned int num_kwonly_args : 1;
-    unsigned int nlocals : 5;
+    unsigned int nlocals : 6;
     unsigned int flags : 10;
-    unsigned int first_line : 7;
+    unsigned int first_line : 8;
 } __Pyx_PyCode_New_function_description;
 /* NewCodeObj.proto */
 static PyObject* __Pyx_PyCode_New(
@@ -20114,14 +20233,14 @@ static int __Pyx_CreateCodeObjects(__pyx_mstatetype *__pyx_mstate) {
   PyObject* tuple_dedup_map = PyDict_New();
   if (unlikely(!tuple_dedup_map)) return -1;
   {
-    const __Pyx_PyCode_New_function_description descr = {13, 0, 0, 26, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 20};
-    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_wordvec, __pyx_mstate->__pyx_n_u_wordvec_sum_gradients, __pyx_mstate->__pyx_n_u_wordbias, __pyx_mstate->__pyx_n_u_wordbias_sum_gradients, __pyx_mstate->__pyx_n_u_row, __pyx_mstate->__pyx_n_u_col, __pyx_mstate->__pyx_n_u_counts, __pyx_mstate->__pyx_n_u_shuffle_indices, __pyx_mstate->__pyx_n_u_initial_learning_rate, __pyx_mstate->__pyx_n_u_max_count, __pyx_mstate->__pyx_n_u_alpha, __pyx_mstate->__pyx_n_u_max_loss, __pyx_mstate->__pyx_n_u_no_threads, __pyx_mstate->__pyx_n_u_dim, __pyx_mstate->__pyx_n_u_no_cooccurrences, __pyx_mstate->__pyx_n_u_word_a, __pyx_mstate->__pyx_n_u_word_b, __pyx_mstate->__pyx_n_u_count, __pyx_mstate->__pyx_n_u_learning_rate, __pyx_mstate->__pyx_n_u_gradient, __pyx_mstate->__pyx_n_u_prediction, __pyx_mstate->__pyx_n_u_entry_weight, __pyx_mstate->__pyx_n_u_loss, __pyx_mstate->__pyx_n_u_i, __pyx_mstate->__pyx_n_u_j, __pyx_mstate->__pyx_n_u_shuffle_index};
-    __pyx_mstate_global->__pyx_codeobj_tab[0] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_glove_glove_cython_pyx, __pyx_mstate->__pyx_n_u_fit_vectors, __pyx_mstate->__pyx_kp_b_iso88591_7_6_q_6a_O1A_S_S_F_1_U_1_Rwaxq, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[0])) goto bad;
+    const __Pyx_PyCode_New_function_description descr = {13, 0, 0, 33, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 23};
+    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_wordvec, __pyx_mstate->__pyx_n_u_wordvec_sum_gradients, __pyx_mstate->__pyx_n_u_wordbias, __pyx_mstate->__pyx_n_u_wordbias_sum_gradients, __pyx_mstate->__pyx_n_u_row, __pyx_mstate->__pyx_n_u_col, __pyx_mstate->__pyx_n_u_counts, __pyx_mstate->__pyx_n_u_shuffle_indices, __pyx_mstate->__pyx_n_u_initial_learning_rate, __pyx_mstate->__pyx_n_u_max_count, __pyx_mstate->__pyx_n_u_alpha, __pyx_mstate->__pyx_n_u_max_loss, __pyx_mstate->__pyx_n_u_no_threads, __pyx_mstate->__pyx_n_u_dim, __pyx_mstate->__pyx_n_u_no_cooccurrences, __pyx_mstate->__pyx_n_u_word_a, __pyx_mstate->__pyx_n_u_word_b, __pyx_mstate->__pyx_n_u_count, __pyx_mstate->__pyx_n_u_learning_rate, __pyx_mstate->__pyx_n_u_gradient, __pyx_mstate->__pyx_n_u_gradient_sq, __pyx_mstate->__pyx_n_u_log_count, __pyx_mstate->__pyx_n_u_ratio, __pyx_mstate->__pyx_n_u_prediction, __pyx_mstate->__pyx_n_u_entry_weight, __pyx_mstate->__pyx_n_u_loss, __pyx_mstate->__pyx_n_u_temp_a, __pyx_mstate->__pyx_n_u_temp_b, __pyx_mstate->__pyx_n_u_weighted_loss, __pyx_mstate->__pyx_n_u_eps, __pyx_mstate->__pyx_n_u_i, __pyx_mstate->__pyx_n_u_j, __pyx_mstate->__pyx_n_u_shuffle_index};
+    __pyx_mstate_global->__pyx_codeobj_tab[0] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_glove_glove_cython_pyx, __pyx_mstate->__pyx_n_u_fit_vectors, __pyx_mstate->__pyx_kp_b_iso88591_7_6_a_q_6a_O1A_S_S_F_1_vS_Qa_HA, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[0])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {11, 0, 0, 25, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 111};
-    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_wordvec, __pyx_mstate->__pyx_n_u_wordbias, __pyx_mstate->__pyx_n_u_paragraphvec, __pyx_mstate->__pyx_n_u_sum_gradients, __pyx_mstate->__pyx_n_u_row, __pyx_mstate->__pyx_n_u_counts, __pyx_mstate->__pyx_n_u_shuffle_indices, __pyx_mstate->__pyx_n_u_initial_learning_rate, __pyx_mstate->__pyx_n_u_max_count, __pyx_mstate->__pyx_n_u_alpha, __pyx_mstate->__pyx_n_u_epochs, __pyx_mstate->__pyx_n_u_dim, __pyx_mstate->__pyx_n_u_no_cooccurrences, __pyx_mstate->__pyx_n_u_word_b, __pyx_mstate->__pyx_n_u_word_a, __pyx_mstate->__pyx_n_u_count, __pyx_mstate->__pyx_n_u_prediction, __pyx_mstate->__pyx_n_u_entry_weight, __pyx_mstate->__pyx_n_u_loss, __pyx_mstate->__pyx_n_u_gradient, __pyx_mstate->__pyx_n_u_epoch, __pyx_mstate->__pyx_n_u_i, __pyx_mstate->__pyx_n_u_j, __pyx_mstate->__pyx_n_u_shuffle_index, __pyx_mstate->__pyx_n_u_learning_rate};
-    __pyx_mstate_global->__pyx_codeobj_tab[1] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_glove_glove_cython_pyx, __pyx_mstate->__pyx_n_u_transform_paragraph, __pyx_mstate->__pyx_kp_b_iso88591_0_7_6_aq_E_aq_O1A_S_F_1_U_1_as, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[1])) goto bad;
+    const __Pyx_PyCode_New_function_description descr = {11, 0, 0, 30, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 135};
+    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_wordvec, __pyx_mstate->__pyx_n_u_wordbias, __pyx_mstate->__pyx_n_u_paragraphvec, __pyx_mstate->__pyx_n_u_sum_gradients, __pyx_mstate->__pyx_n_u_row, __pyx_mstate->__pyx_n_u_counts, __pyx_mstate->__pyx_n_u_shuffle_indices, __pyx_mstate->__pyx_n_u_initial_learning_rate, __pyx_mstate->__pyx_n_u_max_count, __pyx_mstate->__pyx_n_u_alpha, __pyx_mstate->__pyx_n_u_epochs, __pyx_mstate->__pyx_n_u_dim, __pyx_mstate->__pyx_n_u_no_cooccurrences, __pyx_mstate->__pyx_n_u_word_b, __pyx_mstate->__pyx_n_u_count, __pyx_mstate->__pyx_n_u_log_count, __pyx_mstate->__pyx_n_u_ratio, __pyx_mstate->__pyx_n_u_gradient_sq, __pyx_mstate->__pyx_n_u_gradient_val, __pyx_mstate->__pyx_n_u_prediction, __pyx_mstate->__pyx_n_u_entry_weight, __pyx_mstate->__pyx_n_u_loss, __pyx_mstate->__pyx_n_u_weighted_loss, __pyx_mstate->__pyx_n_u_gradient, __pyx_mstate->__pyx_n_u_learning_rate, __pyx_mstate->__pyx_n_u_eps, __pyx_mstate->__pyx_n_u_epoch, __pyx_mstate->__pyx_n_u_i, __pyx_mstate->__pyx_n_u_j, __pyx_mstate->__pyx_n_u_shuffle_index};
+    __pyx_mstate_global->__pyx_codeobj_tab[1] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_glove_glove_cython_pyx, __pyx_mstate->__pyx_n_u_transform_paragraph, __pyx_mstate->__pyx_kp_b_iso88591_0_7_6_a_aq_E_aq_O1A_S_F_1_vS_Qa, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[1])) goto bad;
   }
   Py_DECREF(tuple_dedup_map);
   return 0;
@@ -22913,15 +23032,6 @@ static CYTHON_INLINE long __Pyx_div_long(long a, long b, int b_is_constant) {
         ((r != 0) & ((r ^ b) < 0))
     );
     return q - adapt_python;
-}
-
-/* ErrOccurredWithGIL */
-static CYTHON_INLINE int __Pyx_ErrOccurredWithGIL(void) {
-  int err;
-  PyGILState_STATE _save = PyGILState_Ensure();
-  err = !!PyErr_Occurred();
-  PyGILState_Release(_save);
-  return err;
 }
 
 /* AllocateExtensionType */
